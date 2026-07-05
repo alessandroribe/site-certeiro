@@ -46,7 +46,8 @@ h1,h2,h3,h4,p{margin:0}
 ul{list-style:none;margin:0;padding:0}
 a{color:inherit}
 button{font:inherit;color:inherit}
-@keyframes revealUp{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:none}}
+@keyframes revealUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+@keyframes boxPop{0%{transform:scale(1)}32%{transform:scale(1.32)}100%{transform:scale(1)}}
 
 .container{max-width:1180px;margin:0 auto}
 .section{padding:clamp(58px,9vw,104px) clamp(18px,5.5vw,26px)}
@@ -323,8 +324,11 @@ html.menu-lock,html.menu-lock body{overflow:hidden}
 .quiz-left h2{color:#fff;font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:800;letter-spacing:-.03em;margin-bottom:10px;font-family:var(--display)}
 .quiz-left .sub{color:rgba(255,255,255,.72);font-size:1.06rem;margin-bottom:28px}
 .quiz-opts{display:flex;flex-direction:column}
-.quiz-opt{display:flex;gap:14px;align-items:flex-start;padding:16px 4px;cursor:pointer;font-size:1.05rem;color:rgba(255,255,255,.9);font-weight:500;border:none;border-top:1px solid rgba(255,255,255,.14);background:none;text-align:left;width:100%}
-.quiz-opt .box{flex:none;width:24px;height:24px;border-radius:7px;border:2px solid rgba(255,255,255,.4);background:transparent;display:grid;place-items:center;margin-top:1px;transition:background .15s,border-color .15s;font-size:14px;font-weight:800;color:var(--ink)}
+.quiz-opt{display:flex;gap:14px;align-items:flex-start;padding:16px 10px;cursor:pointer;font-size:1.05rem;color:rgba(255,255,255,.9);font-weight:500;border:none;border-top:1px solid rgba(255,255,255,.14);border-radius:8px;background:none;text-align:left;width:100%;transition:background .22s ease,color .22s ease}
+.quiz-opt:hover{background:rgba(255,255,255,.06);color:#fff}
+.quiz-opt:active{background:rgba(255,255,255,.1)}
+.quiz-opt .box{flex:none;width:24px;height:24px;border-radius:7px;border:2px solid rgba(255,255,255,.4);background:transparent;display:grid;place-items:center;margin-top:1px;transition:background .22s ease,border-color .22s ease,transform .2s cubic-bezier(.34,1.6,.5,1);font-size:14px;font-weight:800;color:var(--ink)}
+.quiz-opt:hover .box{border-color:rgba(255,255,255,.7)}
 .quiz-opt[aria-checked="true"] .box{border-color:var(--ac);background:var(--ac)}
 .quiz-right{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center}
 .quiz-result{background:#fff;color:var(--text);border-radius:12px;padding:34px 32px;min-height:320px;display:flex;flex-direction:column;justify-content:center}
@@ -758,7 +762,7 @@ html.menu-lock,html.menu-lock body{overflow:hidden}
       <div class="quiz-left">
         <h2>Não sabe qual escolher?</h2>
         <p class="sub">30 segundos. Marque o que é verdade pra você:</p>
-        <div class="quiz-opts" id="quizOpts">
+        <div class="quiz-opts" id="quizOpts" data-reveal-group>
           <button type="button" class="quiz-opt" role="checkbox" aria-checked="false" data-w="e"><span class="box"></span>Ainda não tenho página nenhuma — preciso começar a existir profissionalmente.</button>
           <button type="button" class="quiz-opt" role="checkbox" aria-checked="false" data-w="e"><span class="box"></span>Quero algo simples e bem feito pra colocar na bio, no cartão e no WhatsApp.</button>
           <button type="button" class="quiz-opt" role="checkbox" aria-checked="false" data-w="p"><span class="box"></span>Já atendo bem, mas quero que a página me traga contatos melhores.</button>
@@ -943,7 +947,7 @@ html.menu-lock,html.menu-lock body{overflow:hidden}
     singles.forEach(hide);
     groups.forEach(function (g) { Array.prototype.forEach.call(g.children, hide); });
     var play = function (el, delay) {
-      el.style.animation = 'revealUp .75s cubic-bezier(.22,1,.36,1) ' + delay + 'ms both';
+      el.style.animation = 'revealUp .8s cubic-bezier(.21,1.11,.34,1) ' + delay + 'ms both';
       el.addEventListener('animationend', function () {
         el.style.animation = 'none'; el.style.opacity = '1'; el.style.transform = '';
       }, { once: true });
@@ -1171,10 +1175,16 @@ html.menu-lock,html.menu-lock body{overflow:hidden}
   }
 
   opts.forEach(function (o) {
+    var box = o.querySelector('.box');
     o.addEventListener('click', function () {
       var on = o.getAttribute('aria-checked') === 'true';
       o.setAttribute('aria-checked', String(!on));
-      o.querySelector('.box').textContent = !on ? '✓' : '';
+      box.textContent = !on ? '✓' : '';
+      if (!on && !reduced) {
+        box.style.animation = 'none';
+        void box.offsetWidth;   // reflow para reiniciar a animação
+        box.style.animation = 'boxPop .34s cubic-bezier(.34,1.6,.5,1)';
+      }
       updateQuiz();
     });
   });
