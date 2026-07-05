@@ -140,8 +140,6 @@ html.menu-lock,html.menu-lock body{overflow:hidden}
 .hero-sub{font-size:clamp(1.08rem,2.1vw,1.32rem);color:rgba(255,255,255,.84);max-width:700px;margin:0 auto 40px;font-weight:400;line-height:1.5}
 .hero-sub b{color:#fff;font-weight:700}
 .hero-ctas{display:flex;gap:15px;justify-content:center;flex-wrap:wrap;margin-bottom:26px}
-.hero-price{font-weight:600;font-size:15px;color:rgba(255,255,255,.72)}
-.hero-price b{color:#fff;font-weight:700}
 .hero-trust{margin:52px auto 0;padding-top:32px;border-top:1px solid rgba(255,255,255,.16);max-width:660px;font-size:15.5px;color:rgba(255,255,255,.74)}
 .hero-trust b{color:#fff;font-weight:700}
 
@@ -154,10 +152,9 @@ html.menu-lock,html.menu-lock body{overflow:hidden}
 .hero h1{--ly:26px;animation:loadUp .7s cubic-bezier(.16,1,.3,1) .1s both}
 .hero-sub{--ly:26px;animation:loadUp .7s cubic-bezier(.16,1,.3,1) .22s both}
 .hero-ctas{--ly:90px;animation:loadUp .8s cubic-bezier(.19,1,.22,1) .15s both}
-.hero-price{--ly:20px;animation:loadUp .7s cubic-bezier(.16,1,.3,1) .34s both}
-.hero-trust{--ly:20px;animation:loadUp .8s cubic-bezier(.16,1,.3,1) .44s both}
+.hero-trust{--ly:20px;animation:loadUp .8s cubic-bezier(.16,1,.3,1) .38s both}
 @media (prefers-reduced-motion:reduce){
-  .site-header,.hero .glow-1,.hero .glow-2,.hero h1,.hero-sub,.hero-ctas,.hero-price,.hero-trust{animation:none}
+  .site-header,.hero .glow-1,.hero .glow-2,.hero h1,.hero-sub,.hero-ctas,.hero-trust{animation:none}
 }
 
 /* ============ Problema ============ */
@@ -435,13 +432,12 @@ html.menu-lock,html.menu-lock body{overflow:hidden}
   <div class="glow-2"></div>
   <div class="hero-inner">
     <h1>A página que faz o cliente escolher <span class="hl-wrap"><span class="uword"><span id="rotor">você</span><svg class="u-hero" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path d="M4 10 Q 100 1 196 7" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></svg></span>.</span></h1>
-    <p class="hero-sub">Você é referência no que faz. Mas quando um cliente te pesquisa antes de decidir e encontra um site datado — ou nada — a escolha vai pro concorrente que passa mais confiança. Eu construo uma página que mostra a sua autoridade e <b>traz cliente</b>. Você não escreve uma linha.</p>
+    <p class="hero-sub">Seu cliente pesquisa antes de contratar. Eu construo a página que faz essa pesquisa terminar <b>escolhendo você</b>.</p>
     <div class="hero-ctas">
       <a href="#planos" class="btn btn-ac btn-roll" data-roll="Quero meu site">Quero meu site</a>
       <a href="#como" class="btn btn-outline-light">Como funciona</a>
     </div>
-    <div class="hero-price">A partir de <b>12x de R$ 247</b> · parcela no cartão · sem preço de agência</div>
-    <div class="hero-trust">Feita por quem passou <b>20 anos</b> criando as experiências de grandes marcas que <b>milhões de brasileiros</b> usam todo dia. Agora, na sua presença profissional.</div>
+    <div class="hero-trust">Feita por quem passou <b>20 anos</b> criando experiências digitais para grandes marcas que <b>milhões de brasileiros</b> usam todos os dias.</div>
   </div>
 </section>
 
@@ -924,7 +920,7 @@ html.menu-lock,html.menu-lock body{overflow:hidden}
      movimento infinito compete com o CTA e a WCAG 2.2.2 pede parada. */
   var rotor = document.getElementById('rotor');
   if (rotor && !reduced) {
-    var seq = ['o advogado', 'a clínica', 'o dentista', 'o consultor', 'você'];
+    var seq = ['o consultor', 'a clínica', 'o advogado', 'o dentista', 'a arquiteta', 'o especialista', 'a empresa', 'você'];
     var ri = 0;
     var spin = setInterval(function () {
       rotor.style.transition = 'opacity .28s ease, transform .28s ease';
