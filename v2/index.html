@@ -236,10 +236,11 @@ html.menu-lock,html.menu-lock body{overflow:hidden}
 .tempo-total{max-width:820px;margin:64px auto 0;padding-top:44px;border-top:1px solid var(--border);text-align:center}
 .tempo-total .tt-title{font-family:var(--display);font-weight:800;font-size:1.3rem;letter-spacing:-.02em;margin-bottom:34px;color:var(--ink)}
 .tempo-total .tt-title b{color:var(--ac);font-weight:800}
-.tg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:30px}
-.tg-card{text-align:center}
-.tg-card .n{font-family:var(--display);font-weight:800;font-size:1.75rem;letter-spacing:-.02em;color:var(--plum)}
-.tg-card .l{font-size:14.5px;color:var(--muted);margin:6px auto 0;font-weight:600;max-width:230px}
+.tg-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.tg-card{text-align:center;padding:8px 22px}
+.tg-card + .tg-card{border-left:1px solid var(--border)}
+.tg-card .n{font-family:var(--display);font-weight:800;font-size:1.9rem;letter-spacing:-.02em;color:var(--plum)}
+.tg-card .l{font-size:14.5px;color:var(--muted);margin:8px auto 0;font-weight:600;max-width:230px}
 
 /* ============ Portfólio ============ */
 .portfolio{background:var(--bg)}
@@ -394,12 +395,12 @@ a.pf-card:hover .tag::after{opacity:1;transform:translateX(0)}
 
 /* ============ CTA final (laranja) ============ */
 /* Cor chapada, sem gradiente nem glow: bloco editorial, não campanha */
-.final{position:relative;overflow:hidden;text-align:center;padding:clamp(74px,12vw,120px) clamp(18px,5.5vw,26px);background:var(--plum);color:#fff}
+.final{position:relative;overflow:hidden;text-align:center;padding:clamp(74px,12vw,120px) clamp(18px,5.5vw,26px);background:var(--ac);color:#fff}
 .final-inner{position:relative;z-index:2;max-width:780px;margin:0 auto}
 .final h2{font-family:var(--display);font-size:clamp(2.2rem,5vw,3.7rem);font-weight:800;letter-spacing:-.035em;line-height:1.06;margin-bottom:20px;color:#fff}
-.final .sub{font-size:1.2rem;color:rgba(255,255,255,.85);margin-bottom:38px;font-weight:500}
+.final .sub{font-size:1.2rem;color:rgba(255,255,255,.96);margin-bottom:38px;font-weight:600}
 .final-ctas{display:flex;gap:15px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
-.final-price{font-weight:600;font-size:15px;color:rgba(255,255,255,.78)}
+.final-price{font-weight:600;font-size:15px;color:rgba(255,255,255,.88)}
 .final-price b{color:#fff;font-weight:700}
 
 /* ============ Footer ============ */
@@ -412,13 +413,19 @@ a.pf-card:hover .tag::after{opacity:1;transform:translateX(0)}
 .footer-cols h4{font-weight:800;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.42);margin-bottom:16px}
 .footer-cols a{display:block;font-size:.98rem;color:rgba(255,255,255,.7);margin-bottom:11px;text-decoration:none;transition:color .2s ease}
 .footer-cols a:hover{color:var(--ac)}
+/* v2: easter egg no logo do footer */
+.footer-brand .logo .lg-ch,.footer-brand .logo .lg-dot{display:inline-block}
+@keyframes logoWave{0%,100%{transform:none}35%{transform:translateY(-8px)}65%{transform:translateY(2px)}}
+@keyframes dotJump{0%,100%{transform:none}30%{transform:translateY(-16px) scale(1.2)}55%{transform:translateY(3px) scale(1.35,.6)}78%{transform:translateY(-5px)}}
+.footer-brand .logo:hover .lg-ch{animation:logoWave .6s cubic-bezier(.34,1.4,.5,1);animation-delay:calc(var(--i)*.028s)}
+.footer-brand .logo:hover .lg-dot{animation:dotJump .9s cubic-bezier(.34,1.56,.64,1) .3s}
 .footer-bottom{margin-top:44px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,.4)}
 
 /* ============ v2: foco visível + skip link (WCAG 2.4.7) ============ */
 :focus-visible{outline:3px solid var(--ac);outline-offset:3px;border-radius:4px}
 .btn:focus-visible{outline-offset:4px;border-radius:100px}
 .quiz-card :focus-visible,.quem-faz :focus-visible,.custom-block :focus-visible,.site-footer :focus-visible{outline-color:#fff}
-.final :focus-visible{outline-color:#fff}
+.final :focus-visible{outline-color:var(--plum)}
 .skip-link{position:fixed;left:14px;top:-64px;z-index:99;background:var(--ink);color:#fff;font-weight:700;font-size:14px;padding:10px 18px;border-radius:100px;text-decoration:none;transition:top .2s ease}
 .skip-link:focus{top:12px}
 
@@ -427,7 +434,7 @@ a.pf-card:hover .tag::after{opacity:1;transform:translateX(0)}
 .wa-inline:hover{text-decoration:underline}
 
 /* ============ v2: sublinhado que se desenha no reveal ============ */
-html.anim svg.draw path{stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset .9s cubic-bezier(.5,0,.15,1) .35s}
+html.anim svg.draw path{stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset 1s cubic-bezier(.5,0,.15,1) .2s}
 html.anim .uw-drawn svg.draw path{stroke-dashoffset:0}
 
 /* ============ v2: dots da timeline acendem com o progresso ============ */
@@ -448,6 +455,9 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
   .quiz-result{min-height:0;padding:28px 24px}
   .pf-next{min-height:190px}
   .tempo-total{padding-top:36px;margin-top:48px}
+  .tg-grid{grid-template-columns:1fr}
+  .tg-card{padding:18px 0}
+  .tg-card + .tg-card{border-left:none;border-top:1px solid var(--border)}
 }
 @media (max-width:374px){
   .final h2{font-size:2rem}
@@ -747,11 +757,11 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
   <div class="container grid" data-reveal-group>
     <div>
       <h2>Não é um site de template. É um especialista cuidando da sua imagem.</h2>
-      <p>Sou o <b>Alessandro Ribeiro</b>. Passei 20 anos criando as telas e experiências de grandes marcas que milhões de brasileiros usam todos os dias: <b>OLX, Zenvia, Intelipost</b> e outras. Sei o que faz uma pessoa clicar, confiar e contratar.</p>
+      <p>Sou o <b>Alessandro Ribeiro</b>. Passei 20 anos criando as telas e experiências de grandes marcas que milhões de brasileiros usam todos os dias: <b>OLX, Descomplica, Peixe Urbano, Passei Direto</b> e outras. Sei o que faz uma pessoa clicar, confiar e contratar.</p>
       <p>Agora uso isso do <b>seu</b> lado: pra transformar o seu trabalho num site que te faz parecer, e ser, a escolha mais confiável. <b>Cada site passa pela minha mão.</b> Nada de robô, nada de template genérico.</p>
       <div class="maker-proof">
         <div><span class="n">20 anos</span><span class="l">de experiência</span></div>
-        <div><span class="n">Grandes marcas</span><span class="l">OLX, Zenvia, Intelipost</span></div>
+        <div><span class="n">Grandes marcas</span><span class="l">OLX, Descomplica, Peixe Urbano</span></div>
         <div><span class="n">Milhões</span><span class="l">de usuários todos os dias</span></div>
       </div>
       <a href="https://alessandroribeiro.com.br" target="_blank" rel="noopener" class="link">Ver meu trabalho completo →</a>
@@ -932,10 +942,10 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
 <!-- CTA FINAL -->
 <section class="final" aria-label="Chamada final">
   <div class="final-inner" data-reveal-group>
-    <h2>Enquanto você pensa, o cliente está <span class="hl-wrap"><span class="uword"><span>escolhendo outro</span><svg class="u-low draw" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true" style="color:var(--ac)"><path d="M4 10 Q 100 2 196 7" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/></svg></span>.</span></h2>
+    <h2>Enquanto você pensa, o cliente está <span class="hl-wrap"><span class="uword"><span>escolhendo outro</span><svg class="u-low draw" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true" style="color:var(--plum)"><path d="M4 10 Q 100 2 196 7" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/></svg></span>.</span></h2>
     <p class="sub">Seu site pode estar no ar ainda essa semana. Me chama e eu te digo por onde começar.</p>
     <div class="final-ctas">
-      <a href="https://wa.me/5511934603144?text=Ol%C3%A1%21%20Quero%20meu%20site.%20Por%20onde%20a%20gente%20come%C3%A7a%3F" target="_blank" rel="noopener" class="btn btn-ac btn-roll" data-roll="Quero meu site">Quero meu site</a>
+      <a href="https://wa.me/5511934603144?text=Ol%C3%A1%21%20Quero%20meu%20site.%20Por%20onde%20a%20gente%20come%C3%A7a%3F" target="_blank" rel="noopener" class="btn btn-white btn-roll" data-roll="Quero meu site">Quero meu site</a>
       <a href="#planos" class="btn btn-outline-light">Rever os planos</a>
     </div>
     <div class="final-price">A partir de <b>12x de R$ 247</b> · pagamento único, o site é seu</div>
@@ -1031,7 +1041,6 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
     singles.forEach(hide);
     groups.forEach(function (g) { Array.prototype.forEach.call(g.children, hide); });
     var play = function (el, delay) {
-      if (el.querySelector && el.querySelector('.uword')) el.classList.add('uw-drawn');
       el.style.animation = 'revealUp .8s cubic-bezier(.21,1.11,.34,1) ' + delay + 'ms both';
       el.addEventListener('animationend', function () {
         el.style.animation = 'none'; el.style.opacity = '1'; el.style.transform = '';
@@ -1049,6 +1058,16 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
     singles.forEach(function (n) { io.observe(n); });
     groups.forEach(function (n) { io.observe(n); });
+    var drawIo = new IntersectionObserver(function (ents) {
+      ents.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('uw-drawn');
+        drawIo.unobserve(e.target);
+      });
+    }, { threshold: 0.9 });
+    Array.prototype.forEach.call(document.querySelectorAll('svg.draw'), function (s) {
+      drawIo.observe(s.closest('p, h2, h3') || s.parentElement);
+    });
   }
 
   /* ---------- Header, scrollspy e timeline ---------- */
@@ -1081,7 +1100,8 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
     var rect = tlWrap.getBoundingClientRect();
     var items = tlWrap.querySelectorAll('[data-tl]');
     var last = items[items.length - 1];
-    var railH = last ? last.offsetTop + 20 : rect.height - 120;
+    var lastDot = last ? last.querySelector('.tl-dot') : null;
+    var railH = lastDot ? (lastDot.offsetTop + lastDot.offsetHeight / 2) : (last ? last.offsetTop + 20 : rect.height - 120);
     if (tlRail) tlRail.style.height = railH + 'px';
     var lineH = Math.max(0, Math.min(railH, vh * 0.72 - rect.top));
     if (tlLine) tlLine.style.height = lineH + 'px';
@@ -1153,6 +1173,22 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
     var mq = window.matchMedia('(max-width: 860px)');
     var onMq = function () { setMenu(false); };
     mq.addEventListener ? mq.addEventListener('change', onMq) : mq.addListener(onMq);
+  }
+
+  /* ---------- Easter egg: logo do footer ---------- */
+  var flogo = document.querySelector('.footer-brand .logo');
+  if (flogo && !reduced && flogo.firstChild && flogo.firstChild.nodeType === 3) {
+    var fdot = flogo.querySelector('b');
+    var ffrag = document.createDocumentFragment();
+    flogo.firstChild.textContent.split('').forEach(function (ch, i) {
+      var s = document.createElement('span');
+      s.className = 'lg-ch';
+      s.style.setProperty('--i', i);
+      s.textContent = ch === ' ' ? '\u00A0' : ch;
+      ffrag.appendChild(s);
+    });
+    flogo.replaceChild(ffrag, flogo.firstChild);
+    if (fdot) fdot.classList.add('lg-dot');
   }
 
   /* ---------- FAQ ---------- */
