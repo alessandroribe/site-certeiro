@@ -233,14 +233,14 @@ html.menu-lock,html.menu-lock body{overflow:hidden}
 .tl-text b{color:var(--text);font-weight:700}
 .tl-chip{display:inline-flex;align-items:center;gap:8px;margin-top:16px;border-radius:100px;padding:8px 16px;font-weight:700;font-size:14px;color:var(--plum);background:var(--lav)}
 .tl-chip .dot{width:8px;height:8px;border-radius:50%;background:var(--ac)}
-.tempo-total{max-width:820px;margin:64px auto 0;padding-top:44px;border-top:1px solid var(--border);text-align:center}
-.tempo-total .tt-title{font-family:var(--display);font-weight:800;font-size:1.3rem;letter-spacing:-.02em;margin-bottom:34px;color:var(--ink)}
+.tempo-total{max-width:820px;margin:64px auto 0;text-align:center}
+.tempo-total .tt-title{font-family:var(--display);font-weight:800;font-size:1.3rem;letter-spacing:-.02em;margin-bottom:26px;color:var(--ink)}
 .tempo-total .tt-title b{color:var(--ac);font-weight:800}
-.tg-grid{display:grid;grid-template-columns:repeat(3,1fr)}
-.tg-card{text-align:center;padding:8px 22px}
-.tg-card + .tg-card{border-left:1px solid var(--border)}
-.tg-card .n{font-family:var(--display);font-weight:800;font-size:1.9rem;letter-spacing:-.02em;color:var(--plum)}
-.tg-card .l{font-size:14.5px;color:var(--muted);margin:8px auto 0;font-weight:600;max-width:230px}
+.tg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.tg-card{text-align:center;background:#fff;border:1px solid var(--border);border-radius:12px;padding:28px 20px}
+.tg-card .k{display:block;font-size:14px;font-weight:600;color:var(--muted)}
+.tg-card .n{font-family:var(--display);font-weight:800;font-size:2.1rem;letter-spacing:-.02em;color:var(--ink);margin-top:6px}
+.tg-card .l{font-size:13.5px;color:var(--muted);margin:8px auto 0;font-weight:500;max-width:220px}
 
 /* ============ Portfólio ============ */
 .portfolio{background:var(--bg)}
@@ -454,10 +454,9 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
   .quiz-card{gap:32px}
   .quiz-result{min-height:0;padding:28px 24px}
   .pf-next{min-height:190px}
-  .tempo-total{padding-top:36px;margin-top:48px}
-  .tg-grid{grid-template-columns:1fr}
-  .tg-card{padding:18px 0}
-  .tg-card + .tg-card{border-left:none;border-top:1px solid var(--border)}
+  .tempo-total{margin-top:48px}
+  .tg-grid{grid-template-columns:1fr;gap:10px}
+  .tg-card{padding:22px 18px}
 }
 @media (max-width:374px){
   .final h2{font-size:2rem}
@@ -678,19 +677,22 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
       </div>
     </div>
     <div class="tempo-total" data-reveal>
-      <div class="tt-title">Seu tempo total no processo: <b>~40 minutos</b></div>
+      <div class="tt-title">E o seu tempo nisso tudo?</div>
       <div class="tg-grid" data-reveal-group>
         <div class="tg-card">
-          <div class="n">Você</div>
-          <div class="l">30 min de papo + 10 min de revisão</div>
+          <span class="k">Você</span>
+          <div class="n">~40 min</div>
+          <div class="l">30 de papo + 10 de revisão</div>
         </div>
         <div class="tg-card">
-          <div class="n">Eu</div>
+          <span class="k">Eu</span>
+          <div class="n">5 dias</div>
           <div class="l">Texto, design, código e publicação</div>
         </div>
         <div class="tg-card">
-          <div class="n">Dia 5</div>
-          <div class="l">Seu site no ar, trabalhando</div>
+          <span class="k">Seu site</span>
+          <div class="n">No ar</div>
+          <div class="l">No dia 5, já trabalhando</div>
         </div>
       </div>
     </div>
