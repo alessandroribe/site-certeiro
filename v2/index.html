@@ -48,7 +48,7 @@
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;-webkit-font-smoothing:antialiased;font-family:var(--body);background:var(--bg);color:var(--text);line-height:1.55;font-size:17.5px;overflow-x:hidden}
-section{scroll-margin-top:68px}
+section{scroll-margin-top:80px}
 h1,h2,h3,h4,p{margin:0}
 ul{list-style:none;margin:0;padding:0}
 a{color:inherit}
@@ -203,7 +203,7 @@ html.menu-lock,html.menu-lock body{overflow:hidden}
 /* ============ O que você recebe ============ */
 .recebe{background:var(--bg)}
 .recebe .lead-block{max-width:780px;margin-bottom:60px}
-.bens{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:24px;margin-bottom:32px}
+.bens{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:24px;margin-bottom:32px}
 .bem{padding:6px 0}
 .bem .bn{font-family:var(--display);font-weight:800;font-size:1.9rem;color:var(--ac);letter-spacing:-.02em;margin-bottom:14px}
 .bem h3{font-size:1.42rem;font-weight:800;margin-bottom:10px;font-family:var(--display);letter-spacing:-.02em;color:var(--ink)}
@@ -247,7 +247,7 @@ html.menu-lock,html.menu-lock body{overflow:hidden}
 .portfolio .lead-block{max-width:780px;margin-bottom:36px}
 .portfolio .punch{font-family:var(--display);font-weight:700;font-size:clamp(1.3rem,2.6vw,1.9rem);letter-spacing:-.02em;color:var(--text);margin-bottom:44px;max-width:680px}
 .portfolio .punch .uword{color:var(--plum)}
-.pf-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:20px}
+.pf-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:20px}
 .pf-card{border-radius:12px;overflow:hidden;border:1px solid var(--border);background:#fff;text-decoration:none;color:inherit;transition:border-color .25s ease,transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease;display:block;box-shadow:0 1px 2px rgba(28,19,39,.05)}
 a.pf-card:hover{border-color:var(--ac);transform:translateY(-4px);box-shadow:0 20px 44px -22px rgba(28,19,39,.25)}
 .pf-thumb{aspect-ratio:16/10;background:linear-gradient(150deg,#4A2E66,var(--plum-deep));padding:20px 22px 0;display:flex}
@@ -276,7 +276,7 @@ a.pf-card:hover .tag::after{opacity:1;transform:translateX(0)}
 /* ============ Prova social ============ */
 .prova{background:#fff}
 .prova .lead-block{max-width:780px;margin-bottom:60px}
-.prova-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:20px}
+.prova-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:20px}
 .depo{background:var(--bg);border-radius:12px;padding:34px 30px;display:flex;flex-direction:column}
 .depo::before{content:'\201C';font-family:var(--display);font-weight:800;font-size:3.4rem;line-height:.55;color:var(--ac);display:block;margin-bottom:20px}
 .depo p{font-size:1.1rem;color:var(--text);margin-bottom:22px;line-height:1.55}
@@ -304,7 +304,7 @@ a.pf-card:hover .tag::after{opacity:1;transform:translateX(0)}
 .planos .section-title{margin-bottom:18px}
 .planos .lead{font-size:1.2rem;color:var(--muted)}
 .planos .lead b{color:var(--text);font-weight:700}
-.plans-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(290px,100%),1fr));gap:20px;align-items:stretch}
+.plans-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:20px;align-items:stretch}
 .plan{background:#fff;border:1px solid var(--border);border-radius:12px;padding:36px 30px;display:flex;flex-direction:column;box-shadow:0 10px 28px -20px rgba(56,32,79,.25)}
 .plan .name{font-family:var(--display);font-weight:800;font-size:1.4rem;margin-bottom:8px;color:var(--ink)}
 .plan .desc{font-size:1rem;color:var(--muted);min-height:50px;margin-bottom:22px;font-weight:500}
@@ -405,9 +405,9 @@ a.pf-card:hover .tag::after{opacity:1;transform:translateX(0)}
 .footer-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
 .footer-brand{max-width:320px}
 .footer-brand .logo{color:#fff;display:inline-block;margin-bottom:12px}
-.footer-brand p{font-size:.98rem;color:rgba(255,255,255,.5)}
+.footer-brand p{font-size:.98rem;color:rgba(255,255,255,.62)}
 .footer-cols{display:flex;gap:56px;flex-wrap:wrap}
-.footer-cols h4{font-weight:800;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.42);margin-bottom:16px}
+.footer-cols h4{font-weight:800;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:16px}
 .footer-cols a{display:block;font-size:.98rem;color:rgba(255,255,255,.7);padding:6px 0;margin-bottom:3px;text-decoration:none;transition:color .2s ease}
 .footer-cols a:hover{color:var(--ac)}
 /* v2: easter egg no logo do footer */
@@ -416,7 +416,7 @@ a.pf-card:hover .tag::after{opacity:1;transform:translateX(0)}
 @keyframes dotJump{0%,100%{transform:none}30%{transform:translateY(-16px) scale(1.2)}55%{transform:translateY(3px) scale(1.35,.6)}78%{transform:translateY(-5px)}}
 .footer-brand .logo:hover .lg-ch{animation:logoWave .6s cubic-bezier(.34,1.4,.5,1);animation-delay:calc(var(--i)*.028s)}
 .footer-brand .logo:hover .lg-dot{animation:dotJump .9s cubic-bezier(.34,1.56,.64,1) .3s}
-.footer-bottom{margin-top:44px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,.4)}
+.footer-bottom{margin-top:44px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,.62)}
 
 /* ============ v2: foco visível + skip link (WCAG 2.4.7) ============ */
 :focus-visible{outline:3px solid var(--ac);outline-offset:3px}
@@ -441,7 +441,7 @@ a.pf-card:hover .tag::after{opacity:1;transform:translateX(0)}
 .skip-link:focus{top:12px}
 
 /* ============ v2: link inline de WhatsApp ============ */
-.wa-inline{color:var(--ac);font-weight:700;text-decoration:none}
+.wa-inline{color:var(--purple);font-weight:700;text-decoration:none}
 .wa-inline:hover{text-decoration:underline}
 
 /* ============ v2: sublinhado que se desenha no reveal ============ */
@@ -476,7 +476,8 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
 }
 @media (max-width:374px){
   .final h2{font-size:2rem}
-  .hero h1{font-size:2.4rem}
+  .hero h1{font-size:2.2rem}
+  .hl-wrap{white-space:normal}
 }
 
 /* ============ v2: reduced motion das novas interações ============ */
@@ -864,8 +865,8 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
       <div class="glow"></div>
       <div class="quiz-left">
         <h2>Não sabe qual escolher?</h2>
-        <p class="sub">30 segundos. Marque o que é verdade pra você:</p>
-        <div class="quiz-opts" id="quizOpts" data-reveal-group>
+        <p class="sub" id="quizInstr">30 segundos. Marque o que é verdade pra você:</p>
+        <div class="quiz-opts" id="quizOpts" role="group" aria-labelledby="quizInstr" data-reveal-group>
           <button type="button" class="quiz-opt" role="checkbox" aria-checked="false" data-w="e"><span class="box"></span>Ainda não tenho site nenhum. Preciso começar a existir profissionalmente.</button>
           <button type="button" class="quiz-opt" role="checkbox" aria-checked="false" data-w="e"><span class="box"></span>Quero algo simples e bem feito pra colocar na bio, no cartão e no WhatsApp.</button>
           <button type="button" class="quiz-opt" role="checkbox" aria-checked="false" data-w="p"><span class="box"></span>Já atendo bem, mas quero que o site me traga contatos melhores.</button>
@@ -875,7 +876,7 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
         </div>
       </div>
       <div class="quiz-right">
-        <div class="quiz-result">
+        <div class="quiz-result" aria-live="polite">
           <div class="qr-head">
             <span class="qr-label" id="qrLabel">Sua recomendação</span>
             <span class="qr-count" id="qrCount">0/6</span>
@@ -1013,6 +1014,10 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
   if (!reduced) document.documentElement.classList.add('anim');
 
   /* ---------- CTA com letras rolando ---------- */
+  // nome acessível estável: leitor de tela lê o aria-label, não os spans fatiados
+  document.querySelectorAll('.btn-roll').forEach(function (btn) {
+    btn.setAttribute('aria-label', (btn.getAttribute('data-roll') || btn.textContent).trim());
+  });
   if (!reduced) {
     document.querySelectorAll('.btn-roll').forEach(function (btn) {
       var label = btn.getAttribute('data-roll') || btn.textContent;
@@ -1020,7 +1025,7 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
       ['top', 'bot'].forEach(function (row) {
         var wrap = document.createElement('span');
         wrap.className = 'roll-row ' + row;
-        wrap.setAttribute('aria-hidden', row === 'bot' ? 'true' : 'false');
+        wrap.setAttribute('aria-hidden', 'true');
         label.split('').forEach(function (ch, i) {
           var s = document.createElement('span');
           s.textContent = ch === ' ' ? ' ' : ch;
@@ -1141,13 +1146,14 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
   var heroEl = document.querySelector('.hero');
   var planosEl = document.getElementById('planos');
   var finalEl = document.querySelector('.final');
+  var footerEl = document.querySelector('.site-footer');
   function updateWaBar() {
     if (!waBarEl) return;
     var vh = window.innerHeight;
     var over = function (el) { if (!el) return false; var r = el.getBoundingClientRect(); return r.top < vh && r.bottom > 0; };
     var past = heroEl ? heroEl.getBoundingClientRect().bottom < vh * 0.2 : false;
     var lock = document.documentElement.classList.contains('menu-lock');
-    waBarEl.classList.toggle('show', past && !lock && !over(planosEl) && !over(finalEl));
+    waBarEl.classList.toggle('show', past && !lock && !over(planosEl) && !over(finalEl) && !over(footerEl));
   }
 
   var raf = null;
@@ -1214,8 +1220,10 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
 
   /* ---------- FAQ ---------- */
   var faqItems = Array.prototype.slice.call(document.querySelectorAll('.faq-item'));
-  faqItems.forEach(function (item) {
+  faqItems.forEach(function (item, idx) {
     var q = item.querySelector('.faq-q');
+    var panel = item.querySelector('.faq-a');
+    if (panel) { panel.id = 'faq-a-' + idx; q.setAttribute('aria-controls', panel.id); }
     q.addEventListener('click', function () {
       var wasOpen = item.classList.contains('open');
       faqItems.forEach(function (it) {
@@ -1227,6 +1235,11 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
         q.setAttribute('aria-expanded', 'true');
       }
     });
+  });
+
+  /* glifos decorativos (✓ ✕ + do FAQ, box do quiz) fora da leitura por voz */
+  document.querySelectorAll('.card-bad li .ic, .card-good li .ic, .plan li .ic, .faq-q .ic, .quiz-opt .box').forEach(function (e) {
+    e.setAttribute('aria-hidden', 'true');
   });
 
   /* ---------- Quiz ---------- */
@@ -1302,7 +1315,6 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
     }
 
     if (rec !== lastRec) {
-      var wasA = lastRec === 'a';
       lastRec = rec;
       if (rec) { pulse(qrPlan); popResult(); }
     }
