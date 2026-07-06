@@ -1101,7 +1101,8 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
     var items = tlWrap.querySelectorAll('[data-tl]');
     var last = items[items.length - 1];
     var lastDot = last ? last.querySelector('.tl-dot') : null;
-    var railH = lastDot ? (lastDot.offsetTop + lastDot.offsetHeight / 2) : (last ? last.offsetTop + 20 : rect.height - 120);
+    // 8px = margin-top do dot; offsetTop do item é imune ao transform do reveal
+    var railH = last ? (last.offsetTop + 8 + (lastDot ? lastDot.offsetHeight : 15) / 2) : rect.height - 120;
     if (tlRail) tlRail.style.height = railH + 'px';
     var lineH = Math.max(0, Math.min(railH, vh * 0.72 - rect.top));
     if (tlLine) tlLine.style.height = lineH + 'px';
