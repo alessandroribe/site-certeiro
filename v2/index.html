@@ -257,11 +257,8 @@ a.pf-card:hover .pf-frame{transform:scale(1.04)}
 .pf-dots{display:flex;gap:5px}
 .pf-dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.32)}
 .pf-url{margin:0 auto;font-weight:600;font-size:11px;color:rgba(255,255,255,.75);background:rgba(0,0,0,.22);padding:3px 14px;border-radius:100px}
-.pf-shot{flex:1;padding:18px 16px;display:flex;flex-direction:column;gap:9px;align-items:flex-start}
-.pf-sk{display:block;border-radius:4px;background:rgba(255,255,255,.18)}
-.pf-sk-h{width:72%;height:13px}
-.pf-sk-t{width:46%;height:8px;background:rgba(255,255,255,.12)}
-.pf-sk-btn{width:86px;height:20px;border-radius:100px;background:var(--ac);margin-top:4px}
+.pf-shot{flex:1;overflow:hidden}
+.pf-shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
 a.pf-card .tag::after{content:' →';opacity:0;display:inline-block;transform:translateX(-4px);transition:opacity .25s,transform .25s cubic-bezier(.34,1.4,.5,1)}
 a.pf-card:hover .tag::after{opacity:1;transform:translateX(0)}
 .pf-body{padding:20px 24px}
@@ -726,15 +723,15 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
     </div>
     <p class="punch" data-reveal>O site que você está vendo agora é <span class="uword"><span>o nível que você leva</span><svg class="draw" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true" style="color:var(--ac)"><path pathLength="100" d="M4 10 Q 100 2 196 7" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/></svg></span>. Veja outros.</p>
     <div class="pf-grid" data-reveal-group>
-      <div class="pf-card">
-        <div class="pf-thumb"><div class="pf-frame"><div class="pf-chrome"><span class="pf-dots"><i></i><i></i><i></i></span><span class="pf-url">Foco no Valor</span></div><div class="pf-shot"><span class="pf-sk pf-sk-h"></span><span class="pf-sk pf-sk-t"></span><span class="pf-sk pf-sk-btn"></span></div></div></div>
+      <a href="https://foconovalor.com.br" target="_blank" rel="noopener" class="pf-card">
+        <div class="pf-thumb"><div class="pf-frame"><div class="pf-chrome"><span class="pf-dots"><i></i><i></i><i></i></span><span class="pf-url">foconovalor.com.br</span></div><div class="pf-shot"><img src="../assets/case-foconovalor.jpg" alt="Site do Foco no Valor" loading="lazy" width="900" height="534"></div></div></div>
         <div class="pf-body">
           <h3>Foco no Valor</h3>
-          <span class="tag">Página de serviço · no ar em breve</span>
+          <span class="tag">Página de serviço</span>
         </div>
-      </div>
+      </a>
       <a href="https://alessandroribeiro.com.br" target="_blank" rel="noopener" class="pf-card">
-        <div class="pf-thumb"><div class="pf-frame"><div class="pf-chrome"><span class="pf-dots"><i></i><i></i><i></i></span><span class="pf-url">alessandroribeiro.com.br</span></div><div class="pf-shot"><span class="pf-sk pf-sk-h"></span><span class="pf-sk pf-sk-t"></span><span class="pf-sk pf-sk-btn"></span></div></div></div>
+        <div class="pf-thumb"><div class="pf-frame"><div class="pf-chrome"><span class="pf-dots"><i></i><i></i><i></i></span><span class="pf-url">alessandroribeiro.com.br</span></div><div class="pf-shot"><img src="../assets/case-aleribeiro.jpg" alt="Site pessoal do Alessandro Ribeiro" loading="lazy" width="900" height="534"></div></div></div>
         <div class="pf-body">
           <h3>Meu próprio site</h3>
           <span class="tag">Presença profissional</span>
