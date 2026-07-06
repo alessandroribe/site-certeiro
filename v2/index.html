@@ -304,9 +304,8 @@ a.pf-card:hover .tag::after{opacity:1;transform:translateX(0)}
 .planos .section-title{margin-bottom:18px}
 .planos .lead{font-size:1.18rem;color:var(--muted)}
 .planos .lead b{color:var(--text);font-weight:700}
-.plans-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(290px,100%),1fr));gap:20px;align-items:stretch}
-.plan{background:#fff;border:1px solid var(--border);border-radius:12px;padding:36px 30px;display:flex;flex-direction:column;box-shadow:0 12px 32px -18px rgba(56,32,79,.4);transition:box-shadow .3s ease,transform .3s cubic-bezier(.22,1,.36,1)}
-.plan:hover{box-shadow:0 24px 54px -28px rgba(56,32,79,.5);transform:translateY(-6px)}
+.plans-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(255px,100%),1fr));gap:16px;align-items:stretch}
+.plan{background:#fff;border:1px solid var(--border);border-radius:12px;padding:34px 26px;display:flex;flex-direction:column;box-shadow:0 12px 32px -18px rgba(56,32,79,.4)}
 .plan .name{font-family:var(--display);font-weight:800;font-size:1.4rem;margin-bottom:8px;color:var(--ink)}
 .plan .desc{font-size:1rem;color:var(--muted);min-height:48px;margin-bottom:22px;font-weight:500}
 .plan .price .x{font-size:1.3rem;font-weight:700;vertical-align:top}
@@ -319,8 +318,7 @@ a.pf-card:hover .tag::after{opacity:1;transform:translateX(0)}
 .plan ul{display:flex;flex-direction:column;gap:13px}
 .plan li{display:flex;gap:11px;align-items:flex-start;font-size:1rem}
 .plan li .ic{flex:none;width:20px;height:20px;border-radius:50%;background:var(--purple);color:#fff;display:grid;place-items:center;font-size:11px;font-weight:800;margin-top:2px}
-.plan-hero{background:var(--plum);color:#fff;border-color:var(--plum);position:relative;box-shadow:0 30px 66px -30px rgba(42,23,64,.75);transition:box-shadow .3s ease}
-.plan-hero:hover{box-shadow:0 42px 84px -32px rgba(42,23,64,.9)}
+.plan-hero{background:var(--plum);color:#fff;border-color:var(--plum);position:relative;box-shadow:0 30px 66px -30px rgba(42,23,64,.75)}
 .plan-hero .badge{position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:var(--ac);color:#fff;padding:8px 20px;border-radius:100px;font-weight:800;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;box-shadow:0 8px 20px -6px rgba(255,80,0,.55)}
 .plan-hero .name{color:#fff}
 .plan-hero .desc{color:rgba(255,255,255,.8)}
@@ -329,10 +327,13 @@ a.pf-card:hover .tag::after{opacity:1;transform:translateX(0)}
 .plan-hero .btn-ac:hover{filter:brightness(.84)}
 .plan-hero li{color:rgba(255,255,255,.92)}
 .plan-hero li .ic{background:var(--ac);color:#fff}
-.custom-block{margin-top:22px;background:var(--plum);color:#fff;border-radius:12px;padding:clamp(28px,5vw,40px) clamp(24px,5vw,46px);display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
-.custom-block>div{max-width:640px}
-.custom-block h3{font-size:clamp(1.4rem,2.6vw,1.9rem);font-weight:800;margin-bottom:10px;font-family:var(--display);letter-spacing:-.02em}
-.custom-block p{color:rgba(255,255,255,.74);font-size:1.05rem}
+.plan-dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+.plan-dark .name{color:#fff}
+.plan-dark .desc{color:rgba(255,255,255,.72)}
+.plan-dark .price .v{color:#fff}
+.plan-dark .avista{color:rgba(255,255,255,.6)}
+.plan-dark li{color:rgba(255,255,255,.9)}
+.plan-dark li .ic{background:rgba(255,255,255,.16);color:#fff}
 .btn-white{background:#fff;color:var(--plum);font-size:17px;padding:16px 28px;box-shadow:0 8px 24px -10px rgba(0,0,0,.3)}
 .btn-white:hover{background:#EFEAF8}
 .garantia{margin-top:26px;text-align:center;background:var(--lav);border-radius:12px;padding:22px 30px;font-size:1.06rem;color:var(--text)}
@@ -424,7 +425,7 @@ a.pf-card:hover .tag::after{opacity:1;transform:translateX(0)}
 /* ============ v2: foco visível + skip link (WCAG 2.4.7) ============ */
 :focus-visible{outline:3px solid var(--ac);outline-offset:3px;border-radius:4px}
 .btn:focus-visible{outline-offset:4px;border-radius:100px}
-.quiz-card :focus-visible,.quem-faz :focus-visible,.custom-block :focus-visible,.site-footer :focus-visible{outline-color:#fff}
+.quiz-card :focus-visible,.quem-faz :focus-visible,.plan-dark :focus-visible,.site-footer :focus-visible{outline-color:#fff}
 .final :focus-visible{outline-color:var(--plum)}
 .skip-link{position:fixed;left:14px;top:-64px;z-index:99;background:var(--ink);color:#fff;font-weight:700;font-size:14px;padding:10px 18px;border-radius:100px;text-decoration:none;transition:top .2s ease}
 .skip-link:focus{top:12px}
@@ -464,7 +465,7 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
 
 /* ============ v2: reduced motion das novas interações ============ */
 @media (prefers-reduced-motion:reduce){
-  .btn:active,.plan:hover,.pf-card:hover,.pf-card:hover .pf-frame,.pf-next:hover .plus{transform:none}
+  .btn:active,.pf-card:hover,.pf-card:hover .pf-frame,.pf-next:hover .plus{transform:none}
   .plan,.pf-card,.pf-frame,.faq-a,.faq-a p,.wa-bar,.btn{transition:none}
   html.anim svg.draw path{stroke-dashoffset:0;transition:none}
   html.anim .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgba(255,80,0,.12);transition:none}
@@ -826,13 +827,18 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
           <li><span class="ic">✓</span>Ajuste fino de cada detalhe</li>
         </ul></div>
       </div>
-    </div>
-    <div class="custom-block" data-reveal>
-      <div>
-        <h3>Tem empresa, produto ou um projeto maior?</h3>
-        <p>Pra negócio, produto digital, funil ou várias páginas, eu monto uma proposta sob medida pro seu caso. Me conta o que você precisa.</p>
+      <div class="plan plan-dark">
+        <div class="name">Empresa</div>
+        <div class="desc">Pra produto digital, funil ou várias páginas.</div>
+        <div class="price"><span class="v">Sob proposta</span></div>
+        <div class="avista">você me conta, eu desenho o escopo</div>
+        <a href="https://wa.me/5511934603144?text=Ol%C3%A1%21%20Tenho%20um%20projeto%20maior%20e%20quero%20uma%20proposta." target="_blank" rel="noopener" class="btn btn-white">Solicitar proposta</a>
+        <div class="plan-feats"><ul>
+          <li><span class="ic">✓</span>Escopo pensado pro seu caso</li>
+          <li><span class="ic">✓</span>Mesma entrega: texto, design e código</li>
+          <li><span class="ic">✓</span>Direto comigo, do início ao fim</li>
+        </ul></div>
       </div>
-      <a href="https://wa.me/5511934603144?text=Ol%C3%A1%21%20Tenho%20um%20projeto%20maior%20e%20quero%20uma%20proposta." target="_blank" rel="noopener" class="btn btn-white">Solicitar proposta →</a>
     </div>
     <div class="garantia" data-reveal>A gente <b>ajusta até ficar do seu jeito</b>. Você revisa, aponta, eu corrijo. Você não fica preso com nada que não aprovou.</div>
     <div class="fine-print" data-reveal><b>Pagamento único</b> · em até 12x no cartão · hospedagem no 1º ano · o código é 100% seu</div>
