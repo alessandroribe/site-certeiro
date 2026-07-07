@@ -407,7 +407,7 @@ a.pf-card:hover .tag::after{opacity:1;transform:translateX(0)}
 .site-footer{background:var(--ink-deepest);color:rgba(255,255,255,.6);padding:54px clamp(18px,5.5vw,26px) 40px}
 .footer-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
 .footer-brand{max-width:320px}
-.footer-brand .logo{color:#fff;display:inline-block;margin-bottom:12px}
+.footer-brand .logo{color:#fff;display:inline-block;margin-bottom:12px;cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
 .footer-brand p{font-size:.98rem;color:rgba(255,255,255,.62)}
 .footer-cols{display:flex;gap:56px;flex-wrap:wrap}
 .footer-cols h4{font-weight:800;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:16px}
@@ -417,8 +417,8 @@ a.pf-card:hover .tag::after{opacity:1;transform:translateX(0)}
 .footer-brand .logo .lg-ch,.footer-brand .logo .lg-dot{display:inline-block}
 @keyframes logoWave{0%,100%{transform:none}35%{transform:translateY(-8px)}65%{transform:translateY(2px)}}
 @keyframes dotJump{0%,100%{transform:none}30%{transform:translateY(-16px) scale(1.2)}55%{transform:translateY(3px) scale(1.35,.6)}78%{transform:translateY(-5px)}}
-.footer-brand .logo:hover .lg-ch{animation:logoWave .6s cubic-bezier(.34,1.4,.5,1);animation-delay:calc(var(--i)*.028s)}
-.footer-brand .logo:hover .lg-dot{animation:dotJump .9s cubic-bezier(.34,1.56,.64,1) .3s}
+.footer-brand .logo:hover .lg-ch,.footer-brand .logo.play .lg-ch{animation:logoWave .6s cubic-bezier(.34,1.4,.5,1);animation-delay:calc(var(--i)*.028s)}
+.footer-brand .logo:hover .lg-dot,.footer-brand .logo.play .lg-dot{animation:dotJump .9s cubic-bezier(.34,1.56,.64,1) .3s}
 .footer-bottom{margin-top:44px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,.62)}
 
 /* ============ v2: foco visível + skip link (WCAG 2.4.7) ============ */
@@ -1011,7 +1011,7 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="#top" class="logo">Site Certeiro<b>.</b></a>
+        <span class="logo">Site Certeiro<b>.</b></span>
         <p>A página que faz o cliente escolher você. Por Alessandro Ribeiro.</p>
       </div>
       <div class="footer-cols">
@@ -1278,6 +1278,12 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
     });
     flogo.replaceChild(ffrag, flogo.firstChild);
     if (fdot) fdot.classList.add('lg-dot');
+    // no toque (mobile não tem hover): classe .play reproduz a mesma onda
+    flogo.addEventListener('click', function () {
+      if (flogo.classList.contains('play')) return;
+      flogo.classList.add('play');
+      setTimeout(function () { flogo.classList.remove('play'); }, 1400);
+    });
   }
 
   /* ---------- FAQ ---------- */
