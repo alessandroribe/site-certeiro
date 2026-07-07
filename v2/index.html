@@ -488,6 +488,15 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
   html.anim .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgba(255,80,0,.12);transition:none}
   .quiz-result.pop{animation:none}
 }
+
+/* ============ v2: tooltips da pill "Já vem com" ============ */
+.tip{appearance:none;-webkit-appearance:none;background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;cursor:help;border-radius:4px;text-decoration:underline dotted rgba(107,70,193,.55);text-decoration-thickness:1.5px;text-underline-offset:4px}
+.tip:hover{text-decoration-style:solid;text-decoration-color:var(--purple)}
+.tipbox{position:fixed;z-index:70;max-width:290px;visibility:hidden;opacity:0;background:var(--ink);color:#fff;text-align:left;font-size:14px;line-height:1.55;font-weight:500;padding:10px 14px;border-radius:12px;box-shadow:0 12px 32px rgba(28,19,39,.28);pointer-events:none;transform:translateY(6px) scale(.97);transition:opacity .22s ease,transform .28s cubic-bezier(.21,1.11,.34,1),visibility .22s}
+.tipbox.show{visibility:visible;opacity:1;transform:none}
+.tipbox::after{content:"";position:absolute;top:100%;left:var(--ax,50%);margin-left:-6px;border:6px solid transparent;border-top-color:var(--ink)}
+.tipbox.below::after{top:auto;bottom:100%;border-top-color:transparent;border-bottom-color:var(--ink)}
+@media (prefers-reduced-motion:reduce){.tipbox{transition:none}}
 </style>
 <noscript><style>.faq-a{grid-template-rows:1fr}.faq-a p{opacity:1;transform:none}</style></noscript>
 </head>
@@ -652,7 +661,7 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
     </div>
     <p class="tom" data-reveal>E no tom do seu mercado: <b>do escritório de advocacia à clínica premium</b>, cada página fala a língua do seu mercado.</p>
     <div class="pill-wrap" data-reveal>
-      <span class="pill">Já vem com: <b>texto que vende · design sob medida · mobile · WhatsApp · SEO básico · publicação · pronto pra divulgar</b></span>
+      <span class="pill">Já vem com: <b><button type="button" class="tip" data-tip="Você não escreve uma linha: eu escrevo cada palavra do site, do título ao botão.">texto que vende</button> · <button type="button" class="tip" data-tip="Nada de modelo pronto. Eu desenho seu site do zero, pra sua profissão e seu público.">design sob medida</button> · <button type="button" class="tip" data-tip="Perfeito no celular, onde a maioria dos seus clientes vai te achar.">mobile</button> · <button type="button" class="tip" data-tip="Botão direto no site: o cliente toca e a conversa já abre no seu WhatsApp.">WhatsApp</button> · <button type="button" class="tip" data-tip="Configuro tudo pro Google ler seu site. Quem buscar seu nome, te encontra.">SEO básico</button> · <button type="button" class="tip" data-tip="Eu publico e deixo no ar, sem mensalidade. Você só paga o domínio, uns R$ 40 por ano, no seu nome.">publicação</button> · <button type="button" class="tip" data-tip="Você recebe o link funcionando: é só mandar pra clientes, pôr no cartão e no Instagram.">pronto pra divulgar</button></b></span>
     </div>
   </div>
 </section>
@@ -1030,6 +1039,7 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
 </footer>
 
 <div class="wa-bar" id="waBar"><a class="btn btn-ac" href="https://wa.me/5511934603144?text=Ol%C3%A1%2C%20Alessandro%21%20Vim%20pelo%20Site%20Certeiro.%20Quero%20fazer%20meu%20site%20%E2%80%94%20como%20funciona%3F" target="_blank" rel="noopener">Quero meu site</a></div>
+<div class="tipbox" id="tipbox" role="tooltip"></div>
 <script>
 (function () {
   'use strict';
@@ -1358,6 +1368,53 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
       updateQuiz();
     });
   });
+})();
+
+/* ============ v2: tooltips da pill "Já vem com" ============ */
+(function () {
+  var tips = Array.prototype.slice.call(document.querySelectorAll('.tip'));
+  var box = document.getElementById('tipbox');
+  if (!tips.length || !box) return;
+  var active = null;
+
+  function show(btn) {
+    if (active === btn) return;
+    hide();
+    active = btn;
+    box.textContent = btn.getAttribute('data-tip');
+    btn.setAttribute('aria-describedby', 'tipbox');
+    box.classList.remove('below');
+    var r = btn.getBoundingClientRect();
+    var w = box.offsetWidth, h = box.offsetHeight;
+    var left = Math.min(Math.max(12, r.left + r.width / 2 - w / 2), window.innerWidth - 12 - w);
+    var top = r.top - h - 10;
+    if (top < 8) { top = r.bottom + 10; box.classList.add('below'); }
+    box.style.left = left + 'px';
+    box.style.top = top + 'px';
+    box.style.setProperty('--ax', Math.min(Math.max(14, r.left + r.width / 2 - left), w - 14) + 'px');
+    box.classList.add('show');
+  }
+  function hide() {
+    if (!active) return;
+    active.removeAttribute('aria-describedby');
+    active = null;
+    box.classList.remove('show');
+  }
+
+  tips.forEach(function (t) {
+    t.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') show(t); });
+    t.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') hide(); });
+    t.addEventListener('focus', function () { if (t.matches(':focus-visible')) show(t); });
+    t.addEventListener('blur', hide);
+    t.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (active === t) hide(); else show(t);
+    });
+  });
+  document.addEventListener('click', hide);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') hide(); });
+  window.addEventListener('scroll', hide, { passive: true });
+  window.addEventListener('resize', hide);
 })();
 </script>
 
