@@ -112,19 +112,16 @@ button{font:inherit;color:inherit}
 .nav-mobile.open{opacity:1;transform:none;pointer-events:auto}
 .nm-link{display:block;font-family:var(--display);font-weight:600;font-size:27px;letter-spacing:-.02em;line-height:1.15;color:var(--ink);text-decoration:none;padding:13px 2px}
 .nm-sep{height:1px;background:var(--border-3);margin:14px 0 16px}
-.nm-contact{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:22px}
-.nm-contact a{font-size:15px;font-weight:700;color:var(--muted);text-decoration:none;padding:10px 0}
 .nm-cta{font-size:17px;padding:16px 24px}
-.nav-mobile .nm-link,.nav-mobile .nm-sep,.nav-mobile .nm-contact,.nav-mobile .nm-cta{opacity:0;transform:translateY(16px);transition:opacity .38s ease,transform .5s cubic-bezier(.22,1.2,.36,1)}
-.nav-mobile.open .nm-link,.nav-mobile.open .nm-sep,.nav-mobile.open .nm-contact,.nav-mobile.open .nm-cta{opacity:1;transform:none}
+.nav-mobile .nm-link,.nav-mobile .nm-sep,.nav-mobile .nm-cta{opacity:0;transform:translateY(16px);transition:opacity .38s ease,transform .5s cubic-bezier(.22,1.2,.36,1)}
+.nav-mobile.open .nm-link,.nav-mobile.open .nm-sep,.nav-mobile.open .nm-cta{opacity:1;transform:none}
 .nav-mobile.open .nm-link:nth-child(1){transition-delay:.05s}
 .nav-mobile.open .nm-link:nth-child(2){transition-delay:.09s}
 .nav-mobile.open .nm-link:nth-child(3){transition-delay:.13s}
 .nav-mobile.open .nm-link:nth-child(4){transition-delay:.17s}
 .nav-mobile.open .nm-link:nth-child(5){transition-delay:.21s}
 .nav-mobile.open .nm-sep{transition-delay:.26s}
-.nav-mobile.open .nm-contact{transition-delay:.3s}
-.nav-mobile.open .nm-cta{transition-delay:.34s}
+.nav-mobile.open .nm-cta{transition-delay:.3s}
 .nav-backdrop{position:fixed;inset:0;top:68px;z-index:55;background:rgba(247,244,252,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .35s ease}
 .nav-backdrop.show{opacity:1;pointer-events:auto}
 /* trava de scroll à prova de iOS: body congelado na posição, sem overflow:hidden no html
@@ -137,9 +134,9 @@ html.menu-lock body{position:fixed;left:0;right:0;overflow:hidden}
   .site-header.tucked{transform:translateY(-100%)}
 }
 @media (prefers-reduced-motion:reduce){
-  .site-header,.nav-mobile,.nav-mobile .nm-link,.nav-mobile .nm-sep,.nav-mobile .nm-contact,.nav-mobile .nm-cta,.nav-backdrop,.hamburger span{transition:none}
+  .site-header,.nav-mobile,.nav-mobile .nm-link,.nav-mobile .nm-sep,.nav-mobile .nm-cta,.nav-backdrop,.hamburger span{transition:none}
   .nav-mobile{transform:none}
-  .nav-mobile .nm-link,.nav-mobile .nm-sep,.nav-mobile .nm-contact,.nav-mobile .nm-cta{transform:none}
+  .nav-mobile .nm-link,.nav-mobile .nm-sep,.nav-mobile .nm-cta{transform:none}
 }
 
 /* ============ Hero (plum) ============ */
@@ -535,11 +532,6 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
     <a class="nm-link" href="#faq">Dúvidas</a>
   </nav>
   <div class="nm-sep"></div>
-  <div class="nm-contact">
-    <a href="https://wa.me/5511934603144?text=Ol%C3%A1%2C%20Alessandro%21%20Vim%20pelo%20Site%20Certeiro.%20Quero%20fazer%20meu%20site%20%E2%80%94%20como%20funciona%3F" target="_blank" rel="noopener">WhatsApp</a>
-    <a href="mailto:contato@sitecerteiro.com.br">E-mail</a>
-    <a href="https://alessandroribeiro.com.br" target="_blank" rel="noopener">Portfólio</a>
-  </div>
   <a href="https://wa.me/5511934603144?text=Ol%C3%A1%2C%20Alessandro%21%20Vim%20pelo%20Site%20Certeiro.%20Quero%20fazer%20meu%20site%20%E2%80%94%20como%20funciona%3F" target="_blank" rel="noopener" class="btn btn-ac nm-cta">Quero meu site</a>
 </div>
 <div class="nav-backdrop" id="navBackdrop"></div>
