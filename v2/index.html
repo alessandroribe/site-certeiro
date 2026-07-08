@@ -76,7 +76,8 @@ button{font:inherit;color:inherit}
 .hl-wrap{white-space:nowrap}
 
 /* ============ Botões ============ */
-.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:800;font-size:17px;padding:17px 34px;border-radius:100px;text-decoration:none;transition:filter .2s ease,background .2s ease,border-color .16s,transform .18s cubic-bezier(.34,1.56,.64,1)}
+/* v2: 19px (não 17) para o texto branco no laranja cruzar o limiar de "texto grande" da WCAG e fechar contraste AA */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:800;font-size:19px;padding:17px 34px;border-radius:100px;text-decoration:none;transition:filter .2s ease,background .2s ease,border-color .16s,transform .18s cubic-bezier(.34,1.56,.64,1)}
 .btn:active{transform:scale(.97)}
 .btn-ac{background:var(--ac);color:#fff}
 .btn-ac:hover{filter:brightness(.9)}
@@ -105,7 +106,7 @@ button{font:inherit;color:inherit}
 .nav-link:hover,.nav-link.active{color:var(--ink)}
 .nav-link .bar{position:absolute;bottom:-2px;height:2px;border-radius:2px;background:var(--ac);left:50%;width:0;transition:width .4s cubic-bezier(.25,.8,.25,1),left .4s cubic-bezier(.25,.8,.25,1)}
 .nav-link:hover .bar,.nav-link.active .bar{left:0;width:100%}
-.btn-header{font-size:15.5px;padding:11px 22px}
+.btn-header{font-size:19px;padding:9px 22px}
 .hamburger{display:none;position:relative;width:44px;height:44px;border:none;background:none;cursor:pointer;padding:0}
 .hamburger span{position:absolute;left:10px;height:2px;width:24px;border-radius:10px;background:var(--ink);transition:top .26s ease .12s,transform .38s cubic-bezier(.34,1.3,.4,1)}
 .hamburger span:nth-child(1){top:17px}
@@ -117,7 +118,7 @@ button{font:inherit;color:inherit}
 .nav-mobile.open{opacity:1;transform:none;pointer-events:auto}
 .nm-link{display:block;font-family:var(--display);font-weight:600;font-size:27px;letter-spacing:-.02em;line-height:1.15;color:var(--ink);text-decoration:none;padding:13px 2px}
 .nm-sep{height:1px;background:var(--border-3);margin:14px 0 16px}
-.nm-cta{font-size:17px;padding:16px 24px}
+.nm-cta{font-size:19px;padding:16px 24px}
 .nav-mobile .nm-link,.nav-mobile .nm-sep,.nav-mobile .nm-cta{opacity:0;transform:translateY(16px);transition:opacity .38s ease,transform .5s cubic-bezier(.22,1.2,.36,1)}
 .nav-mobile.open .nm-link,.nav-mobile.open .nm-sep,.nav-mobile.open .nm-cta{opacity:1;transform:none}
 .nav-mobile.open .nm-link:nth-child(1){transition-delay:.05s}
@@ -314,7 +315,7 @@ a.pf-card:hover .tag::after{opacity:1;transform:translateX(0)}
 .plan .price .x{font-size:1.3rem;font-weight:700;vertical-align:top}
 .plan .price .v{font-family:var(--display);font-weight:800;font-size:2.5rem;letter-spacing:-.03em;line-height:1;color:var(--ink)}
 .plan .avista{font-size:14px;color:var(--muted);margin:6px 0 18px;font-weight:500}
-.plan .btn{font-size:17px;padding:16px 28px}
+.plan .btn{font-size:19px;padding:16px 28px}
 /* Cards no padrão delta (Mews/Intercom/Notion): kicker de herança +
    lista só do que é novo, ✓ = incluso, rótulo da categoria em bold */
 .plan-feats{margin-top:26px;padding-top:22px;border-top:1px solid var(--border)}
@@ -347,7 +348,7 @@ a.pf-card:hover .tag::after{opacity:1;transform:translateX(0)}
 .custom-block>div{max-width:640px}
 .custom-block h3{font-size:1.3rem;font-weight:800;margin-bottom:6px;font-family:var(--display);letter-spacing:-.02em}
 .custom-block p{color:rgba(255,255,255,.78);font-size:1rem}
-.btn-white{background:#fff;color:var(--plum);font-size:17px;padding:16px 28px;box-shadow:0 8px 24px -10px rgba(0,0,0,.3)}
+.btn-white{background:#fff;color:var(--plum);font-size:19px;padding:16px 28px;box-shadow:0 8px 24px -10px rgba(0,0,0,.3)}
 .btn-white:hover{background:#EFEAF8}
 .garantia{margin-top:26px;text-align:center;background:var(--lav);border-radius:12px;padding:22px 30px;font-size:1.08rem;color:var(--text)}
 .garantia b{color:var(--purple);font-weight:700}
@@ -383,7 +384,7 @@ a.pf-card:hover .tag::after{opacity:1;transform:translateX(0)}
 .qr-cta{display:none;flex-direction:column;align-items:center}
 .qr-cta.show{display:flex}
 .qr-price{font-weight:800;color:var(--text);font-size:1.05rem;margin:14px 0;text-align:center}
-.qr-cta .btn{font-size:17px;padding:16px 28px}
+.qr-cta .btn{font-size:19px;padding:16px 28px}
 .qr-alt{margin-top:12px;font-size:14px;font-weight:600;color:var(--muted);text-decoration:none}
 .qr-alt:hover{text-decoration:underline}
 
@@ -409,10 +410,13 @@ a.pf-card:hover .tag::after{opacity:1;transform:translateX(0)}
 .final{position:relative;overflow:hidden;text-align:center;padding:clamp(74px,12vw,120px) clamp(18px,5.5vw,26px);background:var(--ac);color:#fff}
 .final-inner{position:relative;z-index:2;max-width:780px;margin:0 auto}
 .final h2{font-family:var(--display);font-size:clamp(2.2rem,5vw,3.7rem);font-weight:800;letter-spacing:-.035em;line-height:1.06;margin-bottom:20px;color:#fff}
-.final .sub{font-size:1.2rem;color:rgba(255,255,255,.96);margin-bottom:38px;font-weight:600}
+.final .sub{font-size:1.2rem;color:var(--ink);margin-bottom:38px;font-weight:600}
 .final-ctas{display:flex;gap:15px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
-.final-price{font-weight:600;font-size:15px;color:rgba(255,255,255,.88)}
-.final-price b{color:#fff;font-weight:700}
+/* v2: texto branco no laranja não fecha 4.5:1 (WCAG AA) neste tamanho — ink garante contraste */
+.final-price{font-weight:600;font-size:15px;color:var(--ink)}
+.final-price b{color:var(--ink);font-weight:800}
+.final .btn-outline-light{color:var(--ink);border-color:rgba(28,19,39,.4)}
+.final .btn-outline-light:hover{border-color:var(--ink);background:rgba(28,19,39,.08)}
 
 /* ============ Footer ============ */
 .site-footer{background:var(--ink-deepest);color:rgba(255,255,255,.6);padding:54px clamp(18px,5.5vw,26px) 40px}
@@ -471,7 +475,7 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
 @media (max-width:860px){
   .wa-bar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:58;padding:10px clamp(16px,5vw,26px) calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--border-3);transform:translateY(110%);transition:transform .45s cubic-bezier(.22,1.2,.36,1)}
   .wa-bar.show{transform:none}
-  .wa-bar .btn{width:100%;font-size:16px;padding:14px 24px}
+  .wa-bar .btn{width:100%;font-size:19px;padding:14px 24px}
   /* v2: respiro mobile fora da navegação */
   .tl-item{grid-template-columns:28px 1fr;gap:14px;padding-bottom:48px}
   .tl-rail,.tl-line{left:12.5px}
@@ -1028,8 +1032,10 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
         <div>
           <h4>Contato</h4>
           <a href="https://wa.me/5511934603144?text=Ol%C3%A1%2C%20Alessandro%21%20Vim%20pelo%20Site%20Certeiro.%20Quero%20fazer%20meu%20site%20%E2%80%94%20como%20funciona%3F" target="_blank" rel="noopener">WhatsApp</a>
+          <!-- ocultos a pedido do Alessandro (08/07) — voltar depois
           <a href="mailto:contato@sitecerteiro.com.br">E-mail</a>
           <a href="https://alessandroribeiro.com.br" target="_blank" rel="noopener">Portfólio</a>
+          -->
         </div>
       </div>
     </div>
