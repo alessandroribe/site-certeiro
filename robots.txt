@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://alessandroribe.github.io/site-certeiro/sitemap.xml
+Sitemap: https://sitecerteiro.com.br/sitemap.xml
