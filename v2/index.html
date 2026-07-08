@@ -315,10 +315,26 @@ a.pf-card:hover .tag::after{opacity:1;transform:translateX(0)}
 .plan .price .v{font-family:var(--display);font-weight:800;font-size:2.5rem;letter-spacing:-.03em;line-height:1;color:var(--ink)}
 .plan .avista{font-size:14px;color:var(--muted);margin:6px 0 18px;font-weight:500}
 .plan .btn{font-size:17px;padding:16px 28px;margin-top:auto}
-.plan-diff{font-size:15px;color:var(--muted);font-weight:500;line-height:1.55;margin:0 0 26px}
-.plan-hero .plan-diff{color:rgba(255,255,255,.8)}
-.plan-trigger{font-size:12.5px;font-weight:600;color:var(--muted);text-align:center;margin-top:10px}
-.plan-hero .plan-trigger{color:rgba(255,255,255,.66)}
+/* Linhas de comparação: rótulo bold; no desktop cada categoria fica na
+   mesma altura nos 3 cards (subgrid) pra leitura lado a lado */
+.pr{font-size:15px;color:var(--muted);font-weight:500;line-height:1.5;margin:0 0 14px}
+.pr b{color:var(--ink);font-weight:700}
+.pr-first{padding-top:20px;border-top:1px solid var(--border)}
+.plan-hero .pr{color:rgba(255,255,255,.8)}
+.plan-hero .pr b{color:#fff}
+.plan-hero .pr-first{border-top-color:rgba(255,255,255,.18)}
+.pr .ok{font-weight:800;color:var(--purple)}
+.plan-hero .pr .ok{color:#B49AE3}
+.pr .no{color:#BDB6CB}
+.plan-hero .pr .no{color:rgba(255,255,255,.38)}
+.pr .eq{display:none}
+.plan p.pr:last-of-type{margin-bottom:26px}
+.plans-strip{text-align:center;margin:-24px 0 48px}
+.strip-pill{display:inline-block;font-weight:600;font-size:15px;color:var(--muted);background:var(--lav);border-radius:100px;padding:12px 26px}
+.strip-pill b{color:var(--purple);font-weight:700}
+@media (min-width:861px){
+  .plan{display:grid;grid-template-rows:subgrid;grid-row:span 13}
+}
 .plan-hero{background:var(--plum);color:#fff;border-color:var(--plum);position:relative;box-shadow:0 22px 48px -26px rgba(42,23,64,.55)}
 .plan-hero .badge{position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:var(--ac);color:#fff;padding:8px 20px;border-radius:100px;font-weight:800;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
 .plan-hero .name{color:#fff}
@@ -335,8 +351,6 @@ a.pf-card:hover .tag::after{opacity:1;transform:translateX(0)}
 .btn-white:hover{background:#EFEAF8}
 .garantia{margin-top:26px;text-align:center;background:var(--lav);border-radius:12px;padding:22px 30px;font-size:1.08rem;color:var(--text)}
 .garantia b{color:var(--purple);font-weight:700}
-.fine-print{margin-top:22px;text-align:center;font-weight:600;font-size:15px;color:var(--muted)}
-.fine-print b{color:var(--plum);font-weight:700}
 
 /* ============ Quiz ============ */
 .quiz{background:#fff}
@@ -469,6 +483,8 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
   .tg-grid{grid-template-columns:1fr;gap:10px}
   .tg-card{padding:22px 18px}
   .plans-grid{row-gap:32px}
+  .pr .eq{display:inline}
+  .strip-pill{border-radius:16px;padding:12px 20px}
   .recebe .pill{border-radius:16px;padding:16px 20px;text-align:left}
   .quem-faz .grid,.faq .grid{gap:36px}
   .hero-ctas .btn,.final-ctas .btn{min-width:240px}
@@ -798,36 +814,55 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
   <div class="container">
     <div class="lead-block" data-reveal>
       <h2 class="section-title">Preço de site profissional. Não de agência.</h2>
-      <p class="lead"><b>Uma vez só</b>, parcelado no cartão em até 12x. Sem mensalidade. O site é seu.</p>
+      <p class="lead">Os três saem com o mesmo cuidado e <b>no ar em até 7 dias</b>. O que muda é o tamanho do trabalho que o site faz por você.</p>
     </div>
+    <div class="plans-strip" data-reveal><span class="strip-pill">Em todos os planos: <b>pagamento único · até 12x no cartão · hospedagem sem mensalidade · o código é 100% seu</b></span></div>
     <div class="plans-grid" data-reveal-group>
       <div class="plan">
         <div class="name">Essencial</div>
-        <div class="desc">Para quem só precisa existir com clareza e virar contato.</div>
+        <div class="desc">Para quem é indicado, é pesquisado no Google e ainda não tem o que mostrar.</div>
         <div class="price"><span class="x">12x </span><span class="v">R$ 199</span></div>
         <div class="avista">ou R$ 1.990 à vista</div>
-        <p class="plan-diff">Uma página, sua história em 30 segundos e um botão de WhatsApp.</p>
-        <a href="https://wa.me/5511934603144?text=Ol%C3%A1%2C%20Alessandro%21%20Vim%20pelo%20Site%20Certeiro.%20Tenho%20interesse%20no%20plano%20Essencial%20%E2%80%94%20quero%20come%C3%A7ar." target="_blank" rel="noopener" class="btn btn-plum btn-roll" data-roll="Quero meu site">Quero meu site</a>
-        <div class="plan-trigger">Conversa sem compromisso · ajustes até você aprovar</div>
+        <p class="pr pr-first"><b>Site:</b> uma página que conta quem você é em 30 segundos, com endereço próprio (seunome.com.br)</p>
+        <p class="pr"><b>Visual:</b> design profissional com a sua cara: suas cores, suas fotos, seu tom</p>
+        <p class="pr"><b>Texto:</b> escrito inteiro pra você a partir de uma conversa de 30 minutos. Você não escreve nada</p>
+        <p class="pr"><b>Provas:</b> <span class="no">—</span></p>
+        <p class="pr"><b>Imagens:</b> as fotos que você enviar</p>
+        <p class="pr"><b>Alcance:</b> preparado pra ser encontrado no Google e nas buscas por IA</p>
+        <p class="pr"><b>Idioma:</b> português</p>
+        <p class="pr"><b>Artigos:</b> <span class="no">—</span></p>
+        <a href="https://wa.me/5511934603144?text=Ol%C3%A1%2C%20Alessandro%21%20Vim%20pelo%20Site%20Certeiro%20%E2%80%94%20vi%20o%20plano%20Essencial.%20Quero%20meu%20site." target="_blank" rel="noopener" class="btn btn-plum btn-roll" data-roll="Quero meu site">Quero meu site</a>
       </div>
       <div class="plan plan-hero">
         <span class="badge">★ Mais escolhido</span>
         <div class="name">Profissional</div>
-        <div class="desc">Para quem quer que o site traga cliente.</div>
+        <div class="desc">Para quem entra na lista do cliente junto com outros nomes e precisa ser o escolhido.</div>
         <div class="price"><span class="x">12x </span><span class="v">R$ 329</span></div>
         <div class="avista">ou R$ 3.290 à vista</div>
-        <p class="plan-diff">Várias páginas — quem você é, o que faz, seus dados e suas provas.</p>
-        <a href="https://wa.me/5511934603144?text=Ol%C3%A1%2C%20Alessandro%21%20Vim%20pelo%20Site%20Certeiro.%20Tenho%20interesse%20no%20plano%20Profissional%20%E2%80%94%20quero%20seguir%20com%20ele." target="_blank" rel="noopener" class="btn btn-ac btn-roll" data-roll="Quero meu site">Quero meu site</a>
-        <div class="plan-trigger">Conversa sem compromisso · ajustes até você aprovar</div>
+        <p class="pr pr-first"><b>Site:</b> completo, com espaço próprio pra cada serviço</p>
+        <p class="pr"><b>Visual:</b> <span class="ok">✓</span><span class="eq"> igual ao Essencial</span></p>
+        <p class="pr"><b>Texto:</b> além da sua história, explica cada serviço e responde as dúvidas que o cliente tem antes de fechar</p>
+        <p class="pr"><b>Provas:</b> credenciais, números e depoimentos organizados pra convencer quem compara</p>
+        <p class="pr"><b>Imagens:</b> <span class="ok">✓</span><span class="eq"> igual ao Essencial</span></p>
+        <p class="pr"><b>Alcance:</b> mais conteúdo no ar, mais chances de aparecer nas buscas</p>
+        <p class="pr"><b>Idioma:</b> <span class="ok">✓</span><span class="eq"> igual ao Essencial</span></p>
+        <p class="pr"><b>Artigos:</b> <span class="no">—</span></p>
+        <a href="https://wa.me/5511934603144?text=Ol%C3%A1%2C%20Alessandro%21%20Vim%20pelo%20Site%20Certeiro%20%E2%80%94%20vi%20o%20plano%20Profissional.%20Quero%20meu%20site." target="_blank" rel="noopener" class="btn btn-ac btn-roll" data-roll="Quero meu site">Quero meu site</a>
       </div>
       <div class="plan">
         <div class="name">Autoridade</div>
-        <div class="desc">Para quem quer ser a referência, com um site à altura dos seus honorários.</div>
+        <div class="desc">Para quem já tem reputação e quer um site à altura dela pra cobrar o que vale.</div>
         <div class="price"><span class="x">12x </span><span class="v">R$ 549</span></div>
         <div class="avista">ou R$ 5.490 à vista</div>
-        <p class="plan-diff">Tudo do Profissional, com imagens produzidas, visual sob medida e versão em inglês.</p>
-        <a href="https://wa.me/5511934603144?text=Ol%C3%A1%2C%20Alessandro%21%20Vim%20pelo%20Site%20Certeiro.%20Tenho%20interesse%20no%20plano%20Autoridade%20%E2%80%94%20quero%20conversar%20sobre%20o%20meu%20caso." target="_blank" rel="noopener" class="btn btn-plum btn-roll" data-roll="Quero meu site">Quero meu site</a>
-        <div class="plan-trigger">Conversa sem compromisso · ajustes até você aprovar</div>
+        <p class="pr pr-first"><b>Site:</b> <span class="ok">✓</span><span class="eq"> igual ao Profissional</span></p>
+        <p class="pr"><b>Visual:</b> um nível acima: exclusivo, com animações e detalhes que se notam na primeira visita</p>
+        <p class="pr"><b>Texto:</b> sua história em profundidade: de onde você veio, o que só você faz e o seu real valor</p>
+        <p class="pr"><b>Provas:</b> <span class="ok">✓</span><span class="eq"> igual ao Profissional</span></p>
+        <p class="pr"><b>Imagens:</b> tratadas por mim ou produzidas pra você</p>
+        <p class="pr"><b>Alcance:</b> <span class="ok">✓</span><span class="eq"> igual ao Profissional</span></p>
+        <p class="pr"><b>Idioma:</b> português + versão completa em inglês</p>
+        <p class="pr"><b>Artigos:</b> espaço pra publicar artigos que o Google e as IAs citam</p>
+        <a href="https://wa.me/5511934603144?text=Ol%C3%A1%2C%20Alessandro%21%20Vim%20pelo%20Site%20Certeiro%20%E2%80%94%20vi%20o%20plano%20Autoridade.%20Quero%20meu%20site." target="_blank" rel="noopener" class="btn btn-plum btn-roll" data-roll="Quero meu site">Quero meu site</a>
       </div>
     </div>
     <div class="custom-block" data-reveal>
@@ -838,7 +873,6 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
       <a href="https://wa.me/5511934603144?text=Ol%C3%A1%2C%20Alessandro%21%20Vim%20pelo%20Site%20Certeiro.%20Preciso%20de%20algo%20maior%20pra%20minha%20empresa%20%E2%80%94%20podemos%20conversar%3F" target="_blank" rel="noopener" class="btn btn-white btn-roll" data-roll="Quero uma proposta">Quero uma proposta</a>
     </div>
     <div class="garantia" data-reveal><b>Nada vai ao ar sem a sua aprovação.</b> Você revisa a prévia, aponta o que quer mudar, eu corrijo, e a gente ajusta até ficar do seu jeito.</div>
-    <div class="fine-print" data-reveal><b>Pagamento único</b> · em até 12x no cartão · hospedagem sem mensalidade · o código é 100% seu</div>
   </div>
 </section>
 
