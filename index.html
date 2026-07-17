@@ -113,8 +113,8 @@ button{font:inherit;color:inherit}
 .hamburger.open span{top:21px;transition:top .22s ease,transform .4s cubic-bezier(.34,1.3,.4,1) .1s}
 .hamburger.open span:nth-child(1){transform:rotate(45deg)}
 .hamburger.open span:nth-child(2){transform:rotate(-45deg)}
-.nav-mobile{position:fixed;top:68px;left:0;right:0;z-index:59;display:none;flex-direction:column;padding:14px clamp(16px,5vw,26px) 28px;background:rgba(255,255,255,.98);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border-3);max-height:calc(100dvh - 68px);overflow:auto;opacity:0;transform:translateY(-14px);pointer-events:none;transition:opacity .3s ease,transform .46s cubic-bezier(.32,1.25,.4,1)}
-.nav-mobile.open{opacity:1;transform:none;pointer-events:auto}
+.nav-mobile{position:fixed;top:68px;left:0;right:0;z-index:59;display:none;flex-direction:column;padding:14px clamp(16px,5vw,26px) 28px;background:rgba(255,255,255,.98);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border-3);max-height:calc(100dvh - 68px);overflow:auto;opacity:0;transform:translateY(-14px);pointer-events:none;visibility:hidden;transition:opacity .3s ease,transform .46s cubic-bezier(.32,1.25,.4,1),visibility .3s}
+.nav-mobile.open{opacity:1;transform:none;pointer-events:auto;visibility:visible}
 .nm-link{display:block;font-family:var(--display);font-weight:600;font-size:27px;letter-spacing:-.02em;line-height:1.15;color:var(--ink);text-decoration:none;padding:13px 2px}
 .nm-sep{height:1px;background:var(--border-3);margin:14px 0 16px}
 .nm-cta{font-size:19px;padding:16px 24px}
@@ -421,7 +421,7 @@ a.pf-card:hover .tag::after{opacity:1;transform:translateX(0)}
 .footer-brand .logo{color:#fff;display:inline-block;margin-bottom:12px;cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
 .footer-brand p{font-size:.98rem;color:rgba(255,255,255,.62)}
 .footer-cols{display:flex;gap:56px;flex-wrap:wrap}
-.footer-cols h4{font-weight:800;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:16px}
+.footer-cols h3{font-weight:800;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:16px}
 .footer-cols a{display:block;font-size:.98rem;color:rgba(255,255,255,.7);padding:6px 0;margin-bottom:3px;text-decoration:none;transition:color .2s ease}
 .footer-cols a:hover{color:var(--ac)}
 /* v2: easter egg no logo do footer */
@@ -451,6 +451,7 @@ a.pf-card:hover .tag::after{opacity:1;transform:translateX(0)}
 .quem-faz .link:hover{text-decoration:underline;text-underline-offset:3px}
 .faq-q:hover .ic{background:var(--purple);color:#fff}
 .nm-link:active{color:var(--purple)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
 .skip-link{position:fixed;left:14px;top:-64px;z-index:99;background:var(--ink);color:#fff;font-weight:700;font-size:14px;padding:10px 18px;border-radius:100px;text-decoration:none;transition:top .2s ease}
 .skip-link:focus{top:12px}
 
@@ -469,8 +470,8 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
 /* ============ v2: barra fixa de WhatsApp no mobile ============ */
 .wa-bar{display:none}
 @media (max-width:860px){
-  .wa-bar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:58;padding:10px clamp(16px,5vw,26px) calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--border-3);transform:translateY(110%);transition:transform .45s cubic-bezier(.22,1.2,.36,1)}
-  .wa-bar.show{transform:none}
+  .wa-bar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:58;padding:10px clamp(16px,5vw,26px) calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--border-3);transform:translateY(110%);visibility:hidden;transition:transform .45s cubic-bezier(.22,1.2,.36,1),visibility .45s}
+  .wa-bar.show{transform:none;visibility:visible}
   .wa-bar .btn{width:100%;font-size:19px;padding:14px 24px}
   /* v2: respiro mobile fora da navegação */
   .tl-item{grid-template-columns:28px 1fr;gap:14px;padding-bottom:48px}
@@ -558,7 +559,7 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
   <div class="glow-1"></div>
   <div class="glow-2"></div>
   <div class="hero-inner">
-    <h1>A página que faz o cliente escolher <span class="hl-wrap"><span class="uword"><span id="rotor">você</span><svg class="u-hero" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path d="M4 10 Q 100 1 196 7" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></svg></span>.</span></h1>
+    <h1>A página que faz o cliente escolher <span class="hl-wrap"><span class="uword"><span id="rotor" aria-hidden="true">você</span><span class="sr-only">você</span><svg class="u-hero" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path d="M4 10 Q 100 1 196 7" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></svg></span>.</span></h1>
     <p class="hero-sub">Seu cliente pesquisa antes de contratar. Eu construo a página que faz essa pesquisa terminar <b>em você</b>.</p>
     <div class="hero-ctas">
       <a href="https://wa.me/5511934603144?text=Ol%C3%A1%2C%20Alessandro%21%20Vim%20pelo%20Site%20Certeiro.%20Quero%20fazer%20meu%20site%20%E2%80%94%20como%20funciona%3F" target="_blank" rel="noopener" class="btn btn-ac btn-roll" data-roll="Quero meu site">Quero meu site</a>
@@ -579,19 +580,19 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
       <div class="card-bad">
         <h3>Como você aparece hoje</h3>
         <ul>
-          <li><span class="ic">✕</span>Um site ultrapassado que envelhece sua imagem</li>
-          <li><span class="ic">✕</span>Indicação virando só um contato solto</li>
-          <li><span class="ic">✕</span>Instagram tentando fazer papel de site</li>
-          <li><span class="ic">✕</span>Uma página genérica que não mostra seu diferencial</li>
+          <li><span class="ic" aria-hidden="true">✕</span>Um site ultrapassado que envelhece sua imagem</li>
+          <li><span class="ic" aria-hidden="true">✕</span>Indicação virando só um contato solto</li>
+          <li><span class="ic" aria-hidden="true">✕</span>Instagram tentando fazer papel de site</li>
+          <li><span class="ic" aria-hidden="true">✕</span>Uma página genérica que não mostra seu diferencial</li>
         </ul>
       </div>
       <div class="card-good">
         <h3>Como você vai aparecer</h3>
         <ul>
-          <li><span class="ic">✓</span>Presença à altura da sua autoridade</li>
-          <li><span class="ic">✓</span>Sua experiência e seus resultados no lugar certo</li>
-          <li><span class="ic">✓</span>Um caminho claro e profissional pro cliente te procurar</li>
-          <li><span class="ic">✓</span>Uma página que sustenta confiança antes da conversa</li>
+          <li><span class="ic" aria-hidden="true">✓</span>Presença à altura da sua autoridade</li>
+          <li><span class="ic" aria-hidden="true">✓</span>Sua experiência e seus resultados no lugar certo</li>
+          <li><span class="ic" aria-hidden="true">✓</span>Um caminho claro e profissional pro cliente te procurar</li>
+          <li><span class="ic" aria-hidden="true">✓</span>Uma página que sustenta confiança antes da conversa</li>
         </ul>
       </div>
     </div>
@@ -818,7 +819,7 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
     <div class="plans-strip" data-reveal><span class="strip-pill">Em todos os planos: <b>pagamento único · até 12x no cartão · hospedagem sem mensalidade · o código é 100% seu</b></span></div>
     <div class="plans-grid" data-reveal-group>
       <div class="plan">
-        <div class="name">Essencial</div>
+        <h3 class="name">Essencial</h3>
         <div class="desc">Para quem é indicado, é pesquisado no Google e ainda não tem o que mostrar.</div>
         <div class="price"><span class="x">12x </span><span class="v">R$ 199</span></div>
         <div class="avista">ou R$ 1.990 à vista</div>
@@ -833,7 +834,7 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
       </div>
       <div class="plan plan-hero">
         <span class="badge">★ Mais escolhido</span>
-        <div class="name">Profissional</div>
+        <h3 class="name">Profissional</h3>
         <div class="desc">Para quem entra na lista do cliente junto com outros nomes e precisa ser o escolhido.</div>
         <div class="price"><span class="x">12x </span><span class="v">R$ 329</span></div>
         <div class="avista">ou R$ 3.290 à vista</div>
@@ -846,7 +847,7 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
         </ul></div>
       </div>
       <div class="plan">
-        <div class="name">Autoridade</div>
+        <h3 class="name">Autoridade</h3>
         <div class="desc">Para quem já tem reputação e quer um site à altura dela pra cobrar o que vale.</div>
         <div class="price"><span class="x">12x </span><span class="v">R$ 549</span></div>
         <div class="avista">ou R$ 5.490 à vista</div>
@@ -880,12 +881,12 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
         <h2>Não sabe qual escolher?</h2>
         <p class="sub" id="quizInstr">30 segundos. Marque o que é verdade pra você:</p>
         <div class="quiz-opts" id="quizOpts" role="group" aria-labelledby="quizInstr" data-reveal-group>
-          <button type="button" class="quiz-opt" role="checkbox" aria-checked="false" data-w="e"><span class="box"></span>Ainda não tenho site. Quem me pesquisa não encontra nada que eu controle.</button>
-          <button type="button" class="quiz-opt" role="checkbox" aria-checked="false" data-w="e"><span class="box"></span>Quero algo simples e bem feito pra colocar na bio, no cartão e no WhatsApp.</button>
-          <button type="button" class="quiz-opt" role="checkbox" aria-checked="false" data-w="p"><span class="box"></span>Meu cliente costuma comparar dois ou três nomes antes de fechar.</button>
-          <button type="button" class="quiz-opt" role="checkbox" aria-checked="false" data-w="p"><span class="box"></span>Tenho depoimentos, números e credenciais que hoje ninguém vê.</button>
-          <button type="button" class="quiz-opt" role="checkbox" aria-checked="false" data-w="a"><span class="box"></span>Atendo clientes exigentes e minha imagem precisa estar um nível acima.</button>
-          <button type="button" class="quiz-opt" role="checkbox" aria-checked="false" data-w="a"><span class="box"></span>Atendo, ou quero atender, clientes de fora do Brasil.</button>
+          <button type="button" class="quiz-opt" role="checkbox" aria-checked="false" data-w="e"><span class="box" aria-hidden="true"></span>Ainda não tenho site. Quem me pesquisa não encontra nada que eu controle.</button>
+          <button type="button" class="quiz-opt" role="checkbox" aria-checked="false" data-w="e"><span class="box" aria-hidden="true"></span>Quero algo simples e bem feito pra colocar na bio, no cartão e no WhatsApp.</button>
+          <button type="button" class="quiz-opt" role="checkbox" aria-checked="false" data-w="p"><span class="box" aria-hidden="true"></span>Meu cliente costuma comparar dois ou três nomes antes de fechar.</button>
+          <button type="button" class="quiz-opt" role="checkbox" aria-checked="false" data-w="p"><span class="box" aria-hidden="true"></span>Tenho depoimentos, números e credenciais que hoje ninguém vê.</button>
+          <button type="button" class="quiz-opt" role="checkbox" aria-checked="false" data-w="a"><span class="box" aria-hidden="true"></span>Atendo clientes exigentes e minha imagem precisa estar um nível acima.</button>
+          <button type="button" class="quiz-opt" role="checkbox" aria-checked="false" data-w="a"><span class="box" aria-hidden="true"></span>Atendo, ou quero atender, clientes de fora do Brasil.</button>
         </div>
       </div>
       <div class="quiz-right">
@@ -925,67 +926,67 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
     </div>
     <div class="faq-list" data-reveal-group>
       <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">Preciso entender de tecnologia?<span class="ic">+</span></button>
+        <button type="button" class="faq-q" aria-expanded="false">Preciso entender de tecnologia?<span class="ic" aria-hidden="true">+</span></button>
         <div class="faq-a"><div class="faq-aw"><p>Zero. Você não mexe em nada. Eu cuido de tudo, do texto ao ar. Seu trabalho é só me contar sobre o seu trabalho.</p></div></div>
       </div>
       <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">Não tenho logo nem identidade visual. E agora?<span class="ic">+</span></button>
+        <button type="button" class="faq-q" aria-expanded="false">Não tenho logo nem identidade visual. E agora?<span class="ic" aria-hidden="true">+</span></button>
         <div class="faq-a"><div class="faq-aw"><p>Sem problema. Eu crio uma cara profissional pra você. Se já tiver logo ou identidade, uso a sua como base.</p></div></div>
       </div>
       <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">Serve pra colocar no Instagram e em anúncio?<span class="ic">+</span></button>
+        <button type="button" class="faq-q" aria-expanded="false">Serve pra colocar no Instagram e em anúncio?<span class="ic" aria-hidden="true">+</span></button>
         <div class="faq-a"><div class="faq-aw"><p>Serve pra tudo: bio do Instagram, anúncio, WhatsApp, cartão de visita digital, assinatura de e-mail. É o seu endereço profissional na internet.</p></div></div>
       </div>
       <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">Eu já tenho Instagram. Preciso de site?<span class="ic">+</span></button>
+        <button type="button" class="faq-q" aria-expanded="false">Eu já tenho Instagram. Preciso de site?<span class="ic" aria-hidden="true">+</span></button>
         <div class="faq-a"><div class="faq-aw"><p>Precisa, se quiser parar de depender do algoritmo. O Instagram é ótimo pra ser lembrado, mas o perfil não organiza sua oferta e quase não aparece no Google. O site é o seu endereço fixo: mostra o que você faz, prova por que confiar e leva direto pro contato. Os dois juntos trabalham melhor do que qualquer um sozinho.</p></div></div>
       </div>
       <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">Já tentei fazer sozinho e ficou ruim (ou nunca terminei).<span class="ic">+</span></button>
+        <button type="button" class="faq-q" aria-expanded="false">Já tentei fazer sozinho e ficou ruim (ou nunca terminei).<span class="ic" aria-hidden="true">+</span></button>
         <div class="faq-a"><div class="faq-aw"><p>Normal. Fazer site não é o seu trabalho, é o meu. Você manda as informações e recebe pronto. O que travava não era você, era não ter alguém pra fazer direito.</p></div></div>
       </div>
       <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">Por que não faço no Wix, no Canva ou com IA?<span class="ic">+</span></button>
+        <button type="button" class="faq-q" aria-expanded="false">Por que não faço no Wix, no Canva ou com IA?<span class="ic" aria-hidden="true">+</span></button>
         <div class="faq-a"><div class="faq-aw"><p>Pode fazer, e talvez até fique bonito. O que a ferramenta não te dá é critério: o que dizer, em que ordem, o que cortar e como pedir o contato do jeito certo. Seu cliente julga sua credibilidade em segundos, pelo que vê e pelo que lê. É essa camada que eu passei 20 anos construindo pra grandes marcas. Ferramenta qualquer um tem. Critério, não.</p></div></div>
       </div>
       <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">Por que não um freelancer mais barato ou uma agência?<span class="ic">+</span></button>
+        <button type="button" class="faq-q" aria-expanded="false">Por que não um freelancer mais barato ou uma agência?<span class="ic" aria-hidden="true">+</span></button>
         <div class="faq-a"><div class="faq-aw"><p>São três coisas diferentes. O freelancer barato entrega um template preenchido: fica no ar, mas não te diferencia de ninguém. A agência boa entrega estratégia, cobrando preço e prazo de agência. Aqui é o meio que faltava: texto, design e estratégia de um profissional sênior, falando direto comigo, com preço fechado e prazo de até 7 dias. E a amostra do padrão você já está vendo, é esta página.</p></div></div>
       </div>
       <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">Quanto tempo demora pra ficar pronto?<span class="ic">+</span></button>
+        <button type="button" class="faq-q" aria-expanded="false">Quanto tempo demora pra ficar pronto?<span class="ic" aria-hidden="true">+</span></button>
         <div class="faq-a"><div class="faq-aw"><p>Até 7 dias, contando do briefing. Se der pra entregar antes, eu entrego. A única parte que depende de você são uns 40 minutos: 30 de conversa e 10 de revisão. O resto é comigo.</p></div></div>
       </div>
       <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">Como funciona o pagamento?<span class="ic">+</span></button>
+        <button type="button" class="faq-q" aria-expanded="false">Como funciona o pagamento?<span class="ic" aria-hidden="true">+</span></button>
         <div class="faq-a"><div class="faq-aw"><p>Você paga uma vez, parcelado em até 12x no cartão. Não é assinatura: depois que fica pronto, é seu.</p></div></div>
       </div>
       <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">Tem contrato e nota fiscal?<span class="ic">+</span></button>
+        <button type="button" class="faq-q" aria-expanded="false">Tem contrato e nota fiscal?<span class="ic" aria-hidden="true">+</span></button>
         <div class="faq-a"><div class="faq-aw"><p>Contrato sim, sempre: um contrato simples de prestação de serviço, assinado antes de eu começar, com escopo, prazo e valor por escrito. Nota fiscal não emito por padrão: se você precisar, emito com acréscimo de 4,5% sobre o valor. Sem letra miúda de nenhum dos lados.</p></div></div>
       </div>
       <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">A hospedagem tem mensalidade?<span class="ic">+</span></button>
+        <button type="button" class="faq-q" aria-expanded="false">A hospedagem tem mensalidade?<span class="ic" aria-hidden="true">+</span></button>
         <div class="faq-a"><div class="faq-aw"><p>Não. Eu publico seu site numa infraestrutura global e gratuita (Cloudflare), rápida e segura. O único custo recorrente é o do seu domínio, uns R$ 40 por ano, pago direto no registrador e no seu nome. Sem mensalidade minha, sem ficar refém de ninguém.</p></div></div>
       </div>
       <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">O que o “SEO básico” cobre — e o que não cobre?<span class="ic">+</span></button>
+        <button type="button" class="faq-q" aria-expanded="false">O que o “SEO básico” cobre — e o que não cobre?<span class="ic" aria-hidden="true">+</span></button>
         <div class="faq-a"><div class="faq-aw"><p>Cobre o site sair tecnicamente correto: títulos, descrições, velocidade e indexação no Google. Quem buscar seu nome ou o da sua empresa, te encontra. O que não prometo é topo do Google em busca concorrida, tipo “advogado em São Paulo”: isso depende de conteúdo contínuo ou anúncios, e está fora do escopo. Prefiro te dizer isso agora a você descobrir depois.</p></div></div>
       </div>
       <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">E se eu precisar mudar algo depois que estiver no ar?<span class="ic">+</span></button>
+        <button type="button" class="faq-q" aria-expanded="false">E se eu precisar mudar algo depois que estiver no ar?<span class="ic" aria-hidden="true">+</span></button>
         <div class="faq-a"><div class="faq-aw"><p>Ajustes finos logo após a entrega já estão inclusos. Depois, funciona assim: você descreve a mudança, eu te passo o valor fechado, e nada começa sem o seu ok. Sem mensalidade, sem contrato de manutenção. O código é 100% seu, então qualquer profissional de confiança também consegue mexer, se preferir.</p></div></div>
       </div>
       <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">E se eu não gostar?<span class="ic">+</span></button>
+        <button type="button" class="faq-q" aria-expanded="false">E se eu não gostar?<span class="ic" aria-hidden="true">+</span></button>
         <div class="faq-a"><div class="faq-aw"><p>A gente ajusta até ficar do seu jeito. Você revisa, aponta o que quer mudar, eu corrijo. Você não fica preso com nada que não aprovou.</p></div></div>
       </div>
       <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">Sou de profissão regulamentada (OAB, CRO, CFM). O texto respeita as normas do meu conselho?<span class="ic">+</span></button>
+        <button type="button" class="faq-q" aria-expanded="false">Sou de profissão regulamentada (OAB, CRO, CFM). O texto respeita as normas do meu conselho?<span class="ic" aria-hidden="true">+</span></button>
         <div class="faq-a"><div class="faq-aw"><p>Pra profissões regulamentadas, escrevo em tom sóbrio e informativo, sem promessa de resultado nem captação de clientela, seguindo as normas públicas de publicidade dos conselhos. Não sou advogado, então não vendo parecer jurídico: a palavra final é sua, que conhece seu conselho. E nada vai ao ar sem a sua aprovação.</p></div></div>
       </div>
       <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">Você garante que vou vender mais?<span class="ic">+</span></button>
+        <button type="button" class="faq-q" aria-expanded="false">Você garante que vou vender mais?<span class="ic" aria-hidden="true">+</span></button>
         <div class="faq-a"><div class="faq-aw"><p>Não vendo milagre. Entrego um site muito melhor e feito pra converter. Vender também depende da sua oferta e do seu atendimento. Mas você vai começar com uma presença de verdade na mão, e não um perfil parado.</p></div></div>
       </div>
       <div class="faq-more">Sua dúvida não está aqui? <a class="wa-inline" href="https://wa.me/5511934603144?text=Ol%C3%A1%2C%20Alessandro%21%20Vim%20pelo%20Site%20Certeiro.%20Fiquei%20com%20uma%20d%C3%BAvida%20que%20n%C3%A3o%20achei%20no%20site." target="_blank" rel="noopener">Pergunta no WhatsApp →</a></div>
@@ -1018,7 +1019,7 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
       </div>
       <div class="footer-cols">
         <div>
-          <h4>Navegar</h4>
+          <h3>Navegar</h3>
           <a href="#problema">O problema</a>
           <a href="#quem-e">Pra quem é</a>
           <a href="#como">Como funciona</a>
@@ -1026,7 +1027,7 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
           <a href="#faq">Dúvidas</a>
         </div>
         <div>
-          <h4>Contato</h4>
+          <h3>Contato</h3>
           <a href="https://wa.me/5511934603144?text=Ol%C3%A1%2C%20Alessandro%21%20Vim%20pelo%20Site%20Certeiro.%20Quero%20fazer%20meu%20site%20%E2%80%94%20como%20funciona%3F" target="_blank" rel="noopener">WhatsApp</a>
           <!-- ocultos a pedido do Alessandro (08/07) — voltar depois
           <a href="mailto:contato@sitecerteiro.com.br">E-mail</a>
@@ -1053,6 +1054,12 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
   // nome acessível estável: leitor de tela lê o aria-label, não os spans fatiados
   document.querySelectorAll('.btn-roll').forEach(function (btn) {
     btn.setAttribute('aria-label', (btn.getAttribute('data-roll') || btn.textContent).trim());
+  });
+  // links de WhatsApp avisam que saem da página (o do quiz é atualizado no updateQuiz)
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function (a) {
+    if (a.id === 'qrBtn') return;
+    var name = a.getAttribute('aria-label') || a.textContent.replace(/\s*→\s*$/, '').trim();
+    a.setAttribute('aria-label', name + ' (abre conversa no WhatsApp)');
   });
   if (!reduced) {
     document.querySelectorAll('.btn-roll').forEach(function (btn) {
@@ -1250,6 +1257,7 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
     hamburger.classList.toggle('open', open);
     hamburger.setAttribute('aria-expanded', String(open));
     panel.classList.toggle('open', open);
+    panel.inert = !open; // fechado: fora do Tab e do leitor de tela (o CSS visibility cobre navegadores sem inert)
     if (backdrop) backdrop.classList.toggle('show', open);
     if (open && !wasLocked) {
       lockY = window.scrollY || 0;
@@ -1267,6 +1275,7 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
     }
   }
   if (hamburger && panel) {
+    panel.inert = true;
     hamburger.addEventListener('click', function () {
       setMenu(!panel.classList.contains('open'));
     });
@@ -1321,11 +1330,6 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
         q.setAttribute('aria-expanded', 'true');
       }
     });
-  });
-
-  /* glifos decorativos (✓ ✕ + do FAQ, box do quiz) fora da leitura por voz */
-  document.querySelectorAll('.card-bad li .ic, .card-good li .ic, .plan li .ic, .faq-q .ic, .quiz-opt .box').forEach(function (e) {
-    e.setAttribute('aria-hidden', 'true');
   });
 
   /* ---------- Quiz ---------- */
@@ -1391,6 +1395,7 @@ html.anim .tl-item.is-past .tl-dot{background:var(--ac);box-shadow:0 0 0 5px rgb
       qrWhy.textContent = plan.why;
       qrPrice.textContent = plan.price;
       qrBtn.textContent = 'Quero o ' + plan.name;
+      qrBtn.setAttribute('aria-label', 'Quero o ' + plan.name + ' (abre conversa no WhatsApp)');
       qrBtn.href = plan.wa;
       qrCta.classList.add('show');
     } else {
