@@ -2,9 +2,28 @@
 
 Auditoria WCAG 2.1 AA feita em 17/07/2026, com foco em leitor de tela e teclado
 (motivação: clientes cegos ou com baixa visão devem conseguir usar o site inteiro).
-As mudanças abaixo estão aplicadas no `index.html` de produção. **Nenhuma altera o visual.**
+As mudanças abaixo são mantidas no `index.html` do projeto. **Nenhuma altera o visual.**
 
 ## O que foi feito
+
+### Semântica e anúncios dinâmicos — etapa 2
+
+- **FAQ fechado saiu da árvore acessível**: cada painel acompanha o botão com
+  `aria-hidden` e `inert`, enquanto `aria-expanded` continua indicando o estado.
+  A animação visual foi preservada e, sem JavaScript, o `<noscript>` mantém todas
+  as respostas visíveis e disponíveis.
+- **Perguntas do FAQ viraram headings `h3`**: o botão continua sendo o único
+  controle dentro do heading, facilitando o índice de títulos do leitor de tela
+  sem alterar tipografia, espaçamento ou animação.
+- **CTAs dos planos ficaram distinguíveis**: o texto visível continua "Quero meu
+  site", mas os nomes acessíveis incluem Essencial, Profissional ou Autoridade e
+  preservam o texto visível dentro do nome (WCAG 2.4.4 / 2.5.3).
+- **Resultado do quiz ganhou um status curto e atômico**: a região visual deixou
+  de ser anunciada inteira a cada clique. Um `role="status"` invisível informa
+  apenas a quantidade selecionada e o plano recomendado (WCAG 4.1.3).
+- **Tooltips têm descrição estável**: cada pill recebe um `aria-describedby`
+  próprio, criado a partir do `data-tip`. O balão compartilhado ficou apenas
+  visual, evitando depender do instante em que o foco adiciona a descrição.
 
 ### Navegação por teclado e leitor de tela
 
@@ -54,7 +73,7 @@ As mudanças abaixo estão aplicadas no `index.html` de produção. **Nenhuma al
 
 Skip link, `:focus-visible` com cor por seção, `prefers-reduced-motion` em todas as
 animações, FAQ com `aria-expanded`/`aria-controls`, quiz com `role="checkbox"` +
-`aria-checked` + resultado em `aria-live="polite"`, rotor que roda um ciclo e para
+`aria-checked` + status em `aria-live="polite"`, rotor que roda um ciclo e para
 (WCAG 2.2.2), `alt` descritivo nas imagens, hambúrguer 44×44px, fallback `<noscript>`
 do FAQ.
 
