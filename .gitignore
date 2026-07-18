@@ -2,3 +2,10 @@
 
 # Foto original em alta (só a versão otimizada assets/alessandro.jpg vai pro repo)
 assets/foto-alessandro-gorro.jpeg
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
